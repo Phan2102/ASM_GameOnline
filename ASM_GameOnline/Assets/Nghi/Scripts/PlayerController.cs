@@ -1,168 +1,119 @@
-﻿using System.Collections;
+﻿using Fusion;
+using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
-    [SerializeField] private  float walkSpeed = 3f;
-    [SerializeField] private float runSpeed = 6f;
-    [SerializeField] private float jumpForce = 7f;
-    [SerializeField] private Transform groundCheck; // Điểm kiểm tra mặt đất
-    [SerializeField] private LayerMask groundLayer; // Chỉ kiểm tra va chạm với mặt đất
+    //************************
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float jumpForce = 8f;
+    [SerializeField] private Animator animator;
+    [SerializeField] private Rigidbody2D rb;
 
-    [SerializeField] private Transform firePoint; // Vị trí bắn
+    [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab; // Prefab đạn
-    private bool canShoot = true; // Kiểm soát chỉ bắn 1 viên mỗi lần nhấn phím
-    public bool CanShoot { get; private set; } = true; // Cho phép bắn hay không
 
-    //Thêm property để State có thể truy cập speed
-    public float WalkSpeed => walkSpeed;
-    public float RunSpeed => runSpeed;
-    public Rigidbody2D Rb => rb;
-    public Animator Anim => animator;
-    
+    private float moveInput;
+    private bool isGrounded;
+    private bool facingRight = true;
 
-    private Rigidbody2D rb;
-    private Animator animator;
-    private PlayerStateMachine stateMachine;
 
-    public Vector2 MoveInput { get; private set; }
-    public bool IsGrounded { get; private set; }
-    public bool IsShooting { get; private set; } // Để kiểm soát trạng thái bắn
-    public bool isShooting => IsShooting; // Chỉ có getter
+    [Networked] private Vector3 NetworkedPosition { get; set; }
+    [Networked] private NetworkBool IsWalking { get; set; }
+    [Networked] private NetworkBool IsRunning { get; set; }
+    [Networked] private NetworkBool IsJumping { get; set; }
+    [Networked] private NetworkBool IsFacingRight { get; set; }
 
-    private bool isAutoShooting;
-    public bool IsAutoShooting => isAutoShooting;
-
-    public void SetShooting(bool value)
+    public override void FixedUpdateNetwork()
     {
-        IsShooting = value;
-    }
-    public void SetAutoShooting(bool value)
-    {
-        isAutoShooting = value;
+        if (IsProxy) return; // Nếu không phải máy local thì không xử lý đầu vào
+
+        MovePlayer(); // Gọi trực tiếp MovePlayer() mà không cần UpdateState()
     }
 
-    private void Awake()
+    private void MovePlayer()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        moveInput = Input.GetAxisRaw("Horizontal");
+        bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
+        bool isJumpPressed = Input.GetKeyDown(KeyCode.Space);
+        bool isShooting = Input.GetMouseButtonDown(0); // Bấm chuột trái để bắn
+        // Xác định tốc độ chạy hoặc đi bộ
+        float speed = isShiftPressed ? runSpeed : walkSpeed;
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
 
-        if (animator == null)
-            Debug.LogError("Animator chưa được gán! Hãy đảm bảo Player có component Animator.");
+        // Kiểm tra trạng thái di chuyển
+        IsWalking = moveInput != 0 && !isShiftPressed;
+        IsRunning = moveInput != 0 && isShiftPressed;
 
-        //stateMachine = new PlayerStateMachine(this);
-        // KHÔNG TRUYỀN `this` nữa, mà gán State Machine vào PlayerController sau khi khởi tạo
-        stateMachine = gameObject.AddComponent<PlayerStateMachine>();
-
-        Debug.Log("State Machine Initialized: " + (stateMachine != null));
-    }
-
-    private void Update()
-    {
-        MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-        bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
-        bool runPressed = Input.GetKey(KeyCode.LeftShift);
-        bool shootPressed = Input.GetKeyDown(KeyCode.J);
-        bool autoShootHeld = Input.GetKey(KeyCode.J);
-
-        //Cập nhật trạng thái IsGrounded
-        //IsGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-        IsGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.2f, groundLayer);
-
-        if (shootPressed && canShoot)
-        {
-            //Shoot();
-            stateMachine.ChangeState(new ShootState());
-        }
-
-        //stateMachine.HandleInput(MoveInput, jumpPressed, runPressed, shootPressed);
-        stateMachine.HandleInput(MoveInput, jumpPressed, runPressed, shootPressed, autoShootHeld);
-    }
-
-    private void FixedUpdate()
-    {
-        stateMachine.Update();
-    }
-
-    public void Move(float speed)
-    {
-        if (speed == 0)
-        {
-            rb.linearVelocity = Vector2.zero; // Dừng ngay lập tức
-        }
-        else
-        {
-            rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
-            transform.localScale = new Vector3(Mathf.Sign(speed), 1, 1);
-        }
-        //rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
-        //if (speed != 0) transform.localScale = new Vector3(Mathf.Sign(speed), 1, 1);
-    }
-
-    public void Jump()
-    {
-        if (IsGrounded)
+        // Nhảy
+        if (isJumpPressed && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            IsJumping = true;
         }
-    }
-
-
-    // Gọi từ Animation Event khi bắn**
-    public void FireBullet()
-    {
-        if (firePoint != null && bulletPrefab != null)
+        else if (rb.linearVelocity.y == 0)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(transform.localScale.x * 10f, 0);
+            IsJumping = false;
         }
-    }
 
-    // Gọi từ Animation Event khi kết thúc animation bắn**
-    public void ReturnIdle()
-    {
-        stateMachine.ChangeState(new IdleState());
-        canShoot = true; // Cho phép bắn tiếp
-    }
+        // Lật nhân vật theo hướng di chuyển
+        if (moveInput > 0 && !facingRight) FlipCharacter(true);
+        else if (moveInput < 0 && facingRight) FlipCharacter(false);
 
-    private void Shoot()
-    {
-        if (!canShoot) return;
-        canShoot = false; // Ngăn bắn tiếp
-        if (firePoint != null)
+        // Cập nhật trạng thái lên Network
+        NetworkedPosition = transform.position;
+        IsFacingRight = facingRight;
+
+        if (isShooting)
         {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        }
-        else
-        {
-            Debug.LogWarning("FirePoint chưa được gán trong Inspector!");
+            animator.SetTrigger("isShooting"); // Kích hoạt animation bắn
         }
     }
 
-
-    private void ResetShoot()
+    public override void Render()
     {
-        canShoot = true;
-    }
+        // Cập nhật vị trí từ Network
+        transform.position = NetworkedPosition;
 
-    //Event gọi khi animation bắn kết thúc
-    public void OnShootEnd()
-    {
-        if (!Input.GetKey(KeyCode.J)) // Nếu không bấm giữ J nữa
+        // Cập nhật animation
+        animator.SetBool("isWalking", IsWalking);
+        animator.SetBool("isRunning", IsRunning);
+        animator.SetBool("isJumping", IsJumping);
+
+        // Cập nhật Flip hướng quay mặt
+        if (IsFacingRight != facingRight)
         {
-            IsShooting = false;
-            stateMachine.ChangeState(new IdleState());
+            FlipCharacter(IsFacingRight);
         }
     }
 
-    public void SetAnimation(string animName)
+    private void FlipCharacter(bool faceRight)
     {
-        if (animator == null)
+        facingRight = faceRight;
+        transform.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isGrounded = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isGrounded = false;
+    }
+
+    //**Hàm này sẽ được gọi bởi Animation Event khi đến frame bắn**
+    public void Shoot()
+    {
+        if (!Object.HasStateAuthority) return; // Chỉ máy chủ hoặc máy local có quyền bắn
+
+        Runner.Spawn(bulletPrefab, firePoint.position, Quaternion.identity, Object.InputAuthority, (runner, obj) =>
         {
-            Debug.LogError("Animator chưa được gán!");
-            return;
-        }
-        Debug.Log("Chuyển animation: " + animName);
-        animator.Play(animName);
+            obj.GetComponent<Bullet>().Initialize(facingRight ? 1 : -1);
+        });
     }
 }

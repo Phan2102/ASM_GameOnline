@@ -108,6 +108,17 @@ public class AttackState : IEnemyState
         while (enemy.IsInAttackRange)
         {
             enemy.Attack();
+
+            // Kiểm tra xem có trúng Player không
+            if (enemy.Player != null)
+            {
+                HealthSystem playerHealth = enemy.Player.GetComponent<HealthSystem>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(enemy.AttackDamage); // Gây sát thương
+                }
+            }
+
             yield return new WaitForSeconds(1.5f); // Chờ animation kết thúc
         }
 

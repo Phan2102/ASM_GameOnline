@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float chaseSpeed = 4f;
     [SerializeField] private float detectionRange = 5f;
     [SerializeField] private float attackRange = 1f;
+    public int AttackDamage = 20; // Sát thương
 
     [Header("Waypoints & Player")]
     [SerializeField] private Transform pointA, pointB;
@@ -26,16 +27,41 @@ public class EnemyController : MonoBehaviour
 
     public bool IsPlayerDetected { get; private set; }
     public bool IsInAttackRange { get; private set; }
+    public Transform PlayerTransform { get; private set; }
+
+    public GameObject[] targets;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         stateMachine = new EnemyStateMachine(this);
+        //PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Tìm Player
     }
 
     private void Update()
     {
+        targets = GameObject.FindGameObjectsWithTag("Player");
+        if (targets.Length == 0) return;
+
+        GameObject target = null;
+        float minDistance = Mathf.Infinity;
+        foreach (var t in targets)
+        {
+            var distance = Vector3.Distance(t.transform.position, transform.position);
+            if (distance<minDistance)
+            {
+                minDistance = distance;
+                target = t;
+            }
+        }
+
+        if (target != null)
+        {
+            Vector2 direction = (player.position - transform.position).normalized;
+            rb.linearVelocity = direction * walkSpeed;
+        }
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         IsPlayerDetected = distanceToPlayer < detectionRange;
         IsInAttackRange = distanceToPlayer < attackRange;
