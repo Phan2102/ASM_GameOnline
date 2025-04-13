@@ -187,7 +187,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -279,13 +279,13 @@ TextureImporter:
       name: Mobile - Metal Slug Attack - Stage 19-1_15
       rect:
         serializedVersion: 2
-        x: 9
+        x: 12
         y: 189
-        width: 1026
+        width: 1023
         height: 209
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 1, w: 0}
       customData: 
       outline: []
       physicsShape: []
