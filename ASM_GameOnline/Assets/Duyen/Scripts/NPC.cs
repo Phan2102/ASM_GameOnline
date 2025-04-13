@@ -34,6 +34,8 @@ public class NPC : NetworkBehaviour
     [Networked] private bool NetworkedFlipX { get; set; }
     [Networked] private NetworkBool IsAttacking { get; set; }
     [Networked] private NetworkBool IsDead { get; set; }
+    [Networked] private NetworkBool TriggerDieAnim { get; set; }
+
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -169,6 +171,8 @@ public class NPC : NetworkBehaviour
             animator.SetBool("Dead", IsDead);
         }
 
+       
+
         if (hpFillImage != null)
             hpFillImage.fillAmount = (float)CurrentHP / maxHP;
 
@@ -197,9 +201,36 @@ public class NPC : NetworkBehaviour
         if (hpBarRoot != null)
             hpBarRoot.SetActive(false);
 
+        //spriteRenderer.enabled = false;
+        //StartCoroutine(RespawnCoroutine());
+        RPC_TriggerDieAnim();
+        StartCoroutine(RespawnAfterDieAnim()); // Chạy anim die trước khi respawn
+    }
+    IEnumerator RespawnAfterDieAnim()
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = true; // Hiện lại sprite để chạy anim
+
+        yield return new WaitForSeconds(1.2f); // thời gian chạy anim die
+
         spriteRenderer.enabled = false;
 
-        StartCoroutine(RespawnCoroutine());
+        yield return new WaitForSeconds(respawnTime);
+
+        CurrentHP = maxHP;
+
+        IsDead = false;
+
+        spriteRenderer.enabled = true;
+
+        if (hpBarRoot != null)
+            hpBarRoot.SetActive(true);
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_TriggerDieAnim()
+    {
+        animator.SetTrigger("Die");
     }
 
     IEnumerator RespawnCoroutine()
