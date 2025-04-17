@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 373
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d33d25c3d717454ea385a5cade88180
+      internalID: -1521970815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_1
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 373
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322163859e1e32b418ebec96ab21abfa
+      internalID: -162592687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_2
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 373
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a349d3dbc15b36d43a6a89c4cc7f6a67
+      internalID: -1736516483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_3
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 373
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dc362fa68a71648a21143e93ab1105
+      internalID: -1671145659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 163
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 937dc95e427cddc49b99cb9c49e63e68
+      internalID: -1944899984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_5
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 163
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72c69a1c965b904b86fc4b160bb9de1
+      internalID: 929232703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_6
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 163
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8524377b39940414a87ac0a3358dabe4
+      internalID: 1094432626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_7
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 163
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85ba2ec5e17c5d4eb7c4f8997ca0cbc
+      internalID: 1913431893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +274,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_0: -1521970815
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_1: -162592687
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_2: -1736516483
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_3: -1671145659
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_4: -1944899984
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_5: 929232703
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_6: 1094432626
+      kisspng-red-button-square-classic-red-button-5a8e9b065445a8.9068433815192952383452_7: 1913431893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
