@@ -1,0 +1,21 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:3cc2e523eec6907be11d65b2505e9ad9:f676de46c8a3a8465d76395edce73b99:ac0a7d0f6d9469ba93ea0c3fa2fe5f5e$
+#
+:format=40300
+:texture=JumpAttack_TextureFile-default.png
+:size=1072x536
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+133;0;268;357;268; 0.5;0.5; 0;0;0;0
+134;357;268;357;268; 0.5;0.5; 0;0;0;0
+135;714;268;357;268; 0.5;0.5; 0;0;0;0
+136;0;0;357;268; 0.5;0.5; 0;0;0;0
+137;357;0;357;268; 0.5;0.5; 0;0;0;0
+138;714;0;357;268; 0.5;0.5; 0;0;0;0

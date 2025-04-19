@@ -1,0 +1,128 @@
+version: 2
+tpsheetFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_1/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_2/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_3/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_4/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_5/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_6/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_7/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_Ultra/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Death/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Hurt/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Idle/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/O/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Run/D-default.tpsheet
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Walk/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Combo_1/Attack_1/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Combo_2/Attack_2/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Combo_2/Attack_3/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_4/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_5/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Combo_4/Attack_6/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Idle/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Jump/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Running/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Summon/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Walking/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_1/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_2/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_3/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_4/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_1/AttackSpecial_1_DataFile-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_2/Attack_Special_2_DataFile-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_3/Attack_Special_3_DataFile-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_4/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Idle/DT-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Jump/Jump_DataFile-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Jump_Attack/JumpAttack_DataFile-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Run/Run_Data-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Summon_1/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Summon_2/D-default.tpsheet
+- Assets/Nghi/Character/Male_Sword_Enemy/Walk/D-default.tpsheet
+textureFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_1/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_2/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_3/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_4/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_5/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_6/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_7/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Attack_Ultra/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Death/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Hurt/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Idle/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/O/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Run/T-default.png
+- Assets/Nghi/Character/Demonic Lancer Dragoon Weapon/Walk/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Combo_1/Attack_1/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Combo_2/Attack_2/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Combo_2/Attack_3/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_4/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_5/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Combo_4/Attack_6/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Idle/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Jump/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Running/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Summon/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Walking/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_1/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_2/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_3/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_4/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_1/AttackSpecial_2_TextureFile-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_2/Special_Attack_2_TextureFile-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_3/Special_Attack_3_TextureFile-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Attack_Special_4/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Idle/TT-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Jump/Jump_TextureFile-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Jump_Attack/JumpAttack_TextureFile-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Run/Run_Texture-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Summon_1/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Summon_2/T-default.png
+- Assets/Nghi/Character/Male_Sword_Enemy/Walk/T-default.png
+normalmapFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+enableDebugOutput: 0

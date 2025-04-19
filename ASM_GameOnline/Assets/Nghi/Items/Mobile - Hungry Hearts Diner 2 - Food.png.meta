@@ -1,0 +1,2418 @@
+fileFormatVersion: 2
+guid: fa0b0267016bdf44db531d44015d8e2d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7425831248084861066
+    second: Mobile - Hungry Hearts Diner 2 - Food_0
+  - first:
+      213: -7466097185576359931
+    second: Mobile - Hungry Hearts Diner 2 - Food_1
+  - first:
+      213: -4536193145318507294
+    second: Mobile - Hungry Hearts Diner 2 - Food_2
+  - first:
+      213: 5469652587018915010
+    second: Mobile - Hungry Hearts Diner 2 - Food_3
+  - first:
+      213: 88070060801153692
+    second: Mobile - Hungry Hearts Diner 2 - Food_4
+  - first:
+      213: -6829224811373376833
+    second: Mobile - Hungry Hearts Diner 2 - Food_5
+  - first:
+      213: 2396024575953154244
+    second: Mobile - Hungry Hearts Diner 2 - Food_6
+  - first:
+      213: 3273104224309733945
+    second: Mobile - Hungry Hearts Diner 2 - Food_7
+  - first:
+      213: 2832400662371406273
+    second: Mobile - Hungry Hearts Diner 2 - Food_8
+  - first:
+      213: 6270853273054824470
+    second: Mobile - Hungry Hearts Diner 2 - Food_9
+  - first:
+      213: -3587864225250142590
+    second: Mobile - Hungry Hearts Diner 2 - Food_10
+  - first:
+      213: 4089716713018055974
+    second: Mobile - Hungry Hearts Diner 2 - Food_11
+  - first:
+      213: 4595728901823725926
+    second: Mobile - Hungry Hearts Diner 2 - Food_12
+  - first:
+      213: -790059748718931791
+    second: Mobile - Hungry Hearts Diner 2 - Food_13
+  - first:
+      213: 2738858390805796016
+    second: Mobile - Hungry Hearts Diner 2 - Food_14
+  - first:
+      213: -7660104847416763294
+    second: Mobile - Hungry Hearts Diner 2 - Food_15
+  - first:
+      213: 7394822012848381114
+    second: Mobile - Hungry Hearts Diner 2 - Food_16
+  - first:
+      213: 3442424718600387796
+    second: Mobile - Hungry Hearts Diner 2 - Food_17
+  - first:
+      213: 5072499683730254103
+    second: Mobile - Hungry Hearts Diner 2 - Food_18
+  - first:
+      213: -3435282119846537235
+    second: Mobile - Hungry Hearts Diner 2 - Food_19
+  - first:
+      213: -4820420389005171200
+    second: Mobile - Hungry Hearts Diner 2 - Food_20
+  - first:
+      213: 5095290966333714487
+    second: Mobile - Hungry Hearts Diner 2 - Food_21
+  - first:
+      213: -5144896475747183201
+    second: Mobile - Hungry Hearts Diner 2 - Food_22
+  - first:
+      213: -7073006959225109110
+    second: Mobile - Hungry Hearts Diner 2 - Food_23
+  - first:
+      213: 7948934003044345143
+    second: Mobile - Hungry Hearts Diner 2 - Food_24
+  - first:
+      213: -4966333631781786757
+    second: Mobile - Hungry Hearts Diner 2 - Food_25
+  - first:
+      213: 3757326752267540455
+    second: Mobile - Hungry Hearts Diner 2 - Food_26
+  - first:
+      213: -6849753180705635721
+    second: Mobile - Hungry Hearts Diner 2 - Food_27
+  - first:
+      213: -4114106678145066849
+    second: Mobile - Hungry Hearts Diner 2 - Food_28
+  - first:
+      213: 8364796841912286933
+    second: Mobile - Hungry Hearts Diner 2 - Food_29
+  - first:
+      213: -4338074184251554252
+    second: Mobile - Hungry Hearts Diner 2 - Food_30
+  - first:
+      213: 1655672380889338406
+    second: Mobile - Hungry Hearts Diner 2 - Food_31
+  - first:
+      213: -1808008556225603132
+    second: Mobile - Hungry Hearts Diner 2 - Food_32
+  - first:
+      213: 1092876793492894851
+    second: Mobile - Hungry Hearts Diner 2 - Food_33
+  - first:
+      213: 4695114105072669143
+    second: Mobile - Hungry Hearts Diner 2 - Food_34
+  - first:
+      213: -2072693395950519790
+    second: Mobile - Hungry Hearts Diner 2 - Food_35
+  - first:
+      213: -5217505920805655301
+    second: Mobile - Hungry Hearts Diner 2 - Food_36
+  - first:
+      213: 1585903308757224522
+    second: Mobile - Hungry Hearts Diner 2 - Food_37
+  - first:
+      213: -2379018048743193999
+    second: Mobile - Hungry Hearts Diner 2 - Food_38
+  - first:
+      213: 3459625722230677061
+    second: Mobile - Hungry Hearts Diner 2 - Food_39
+  - first:
+      213: 2919663066561013770
+    second: Mobile - Hungry Hearts Diner 2 - Food_40
+  - first:
+      213: 8117374454877752771
+    second: Mobile - Hungry Hearts Diner 2 - Food_41
+  - first:
+      213: 335040166262487054
+    second: Mobile - Hungry Hearts Diner 2 - Food_42
+  - first:
+      213: -3377592285832630015
+    second: Mobile - Hungry Hearts Diner 2 - Food_43
+  - first:
+      213: 8797752171933781999
+    second: Mobile - Hungry Hearts Diner 2 - Food_44
+  - first:
+      213: 5120083486401871923
+    second: Mobile - Hungry Hearts Diner 2 - Food_45
+  - first:
+      213: 2778572346961445827
+    second: Mobile - Hungry Hearts Diner 2 - Food_46
+  - first:
+      213: -4370308544707396923
+    second: Mobile - Hungry Hearts Diner 2 - Food_47
+  - first:
+      213: 2678551779911072758
+    second: Mobile - Hungry Hearts Diner 2 - Food_48
+  - first:
+      213: -7534314860674955344
+    second: Mobile - Hungry Hearts Diner 2 - Food_49
+  - first:
+      213: 4305383286748447654
+    second: Mobile - Hungry Hearts Diner 2 - Food_50
+  - first:
+      213: -8171161930538226236
+    second: Mobile - Hungry Hearts Diner 2 - Food_51
+  - first:
+      213: -4719213988655314123
+    second: Mobile - Hungry Hearts Diner 2 - Food_52
+  - first:
+      213: -6058559342716755359
+    second: Mobile - Hungry Hearts Diner 2 - Food_53
+  - first:
+      213: 2215027625660517011
+    second: Mobile - Hungry Hearts Diner 2 - Food_54
+  - first:
+      213: -4565662085141566756
+    second: Mobile - Hungry Hearts Diner 2 - Food_55
+  - first:
+      213: 9189485649033476585
+    second: Mobile - Hungry Hearts Diner 2 - Food_56
+  - first:
+      213: -7364435912595504430
+    second: Mobile - Hungry Hearts Diner 2 - Food_57
+  - first:
+      213: -4033622254555463849
+    second: Mobile - Hungry Hearts Diner 2 - Food_58
+  - first:
+      213: 8109296861762232736
+    second: Mobile - Hungry Hearts Diner 2 - Food_59
+  - first:
+      213: 5819639937745050440
+    second: Mobile - Hungry Hearts Diner 2 - Food_60
+  - first:
+      213: 7296396245993948090
+    second: Mobile - Hungry Hearts Diner 2 - Food_61
+  - first:
+      213: -7941270624409023659
+    second: Mobile - Hungry Hearts Diner 2 - Food_62
+  - first:
+      213: 2277695907222156940
+    second: Mobile - Hungry Hearts Diner 2 - Food_63
+  - first:
+      213: 5789081597093703366
+    second: Mobile - Hungry Hearts Diner 2 - Food_64
+  - first:
+      213: 2138444770357648439
+    second: Mobile - Hungry Hearts Diner 2 - Food_65
+  - first:
+      213: 8168862920168079400
+    second: Mobile - Hungry Hearts Diner 2 - Food_66
+  - first:
+      213: -6500017254368422863
+    second: Mobile - Hungry Hearts Diner 2 - Food_67
+  - first:
+      213: 6406343379499610755
+    second: Mobile - Hungry Hearts Diner 2 - Food_68
+  - first:
+      213: -1717866031300878009
+    second: Mobile - Hungry Hearts Diner 2 - Food_69
+  - first:
+      213: -203372429864425865
+    second: Mobile - Hungry Hearts Diner 2 - Food_70
+  - first:
+      213: -3539345136403487162
+    second: Mobile - Hungry Hearts Diner 2 - Food_71
+  - first:
+      213: 7552417998706681148
+    second: Mobile - Hungry Hearts Diner 2 - Food_72
+  - first:
+      213: 6947383866300347824
+    second: Mobile - Hungry Hearts Diner 2 - Food_73
+  - first:
+      213: -2773190239609763107
+    second: Mobile - Hungry Hearts Diner 2 - Food_74
+  - first:
+      213: 6333978649520907210
+    second: Mobile - Hungry Hearts Diner 2 - Food_75
+  - first:
+      213: -1142995112464930385
+    second: Mobile - Hungry Hearts Diner 2 - Food_76
+  - first:
+      213: -7840797306288546866
+    second: Mobile - Hungry Hearts Diner 2 - Food_77
+  - first:
+      213: 3125970617876702521
+    second: Mobile - Hungry Hearts Diner 2 - Food_78
+  - first:
+      213: 5703741946714653938
+    second: Mobile - Hungry Hearts Diner 2 - Food_79
+  - first:
+      213: -6903322232954102278
+    second: Mobile - Hungry Hearts Diner 2 - Food_80
+  - first:
+      213: 867212103931163776
+    second: Mobile - Hungry Hearts Diner 2 - Food_81
+  - first:
+      213: -7559105439472052132
+    second: Mobile - Hungry Hearts Diner 2 - Food_82
+  - first:
+      213: 4413320131009935856
+    second: Mobile - Hungry Hearts Diner 2 - Food_83
+  - first:
+      213: 7719301957072900688
+    second: Mobile - Hungry Hearts Diner 2 - Food_84
+  - first:
+      213: -6848717741454482641
+    second: Mobile - Hungry Hearts Diner 2 - Food_85
+  - first:
+      213: -471706272182169838
+    second: Mobile - Hungry Hearts Diner 2 - Food_86
+  - first:
+      213: -6768385641522467817
+    second: Mobile - Hungry Hearts Diner 2 - Food_87
+  - first:
+      213: 1776911814701532140
+    second: Mobile - Hungry Hearts Diner 2 - Food_88
+  - first:
+      213: -9046440928214384286
+    second: Mobile - Hungry Hearts Diner 2 - Food_89
+  - first:
+      213: 1511149430099834054
+    second: Mobile - Hungry Hearts Diner 2 - Food_90
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2698
+        width: 105
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8008182d2add0760800000000000000
+      internalID: 7425831248084861066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 2694
+        width: 116
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5086d23ba28136890800000000000000
+      internalID: -7466097185576359931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2646
+        width: 116
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec7abc3e543c01c0800000000000000
+      internalID: -4536193145318507294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_3
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 2646
+        width: 116
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc0f066c0c18eb40800000000000000
+      internalID: 5469652587018915010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2598
+        width: 111
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a5661f043e83100800000000000000
+      internalID: 88070060801153692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_5
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 2596
+        width: 116
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba4ec28738b931a0800000000000000
+      internalID: -6829224811373376833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2545
+        width: 118
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c03bca38a3604120800000000000000
+      internalID: 2396024575953154244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_7
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 2544
+        width: 94
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93aefca43f66c6d20800000000000000
+      internalID: 3273104224309733945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2492
+        width: 94
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c19a3e4565be4720800000000000000
+      internalID: 2832400662371406273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_9
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 2492
+        width: 94
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6184703d3db860750800000000000000
+      internalID: 6270853273054824470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2440
+        width: 94
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28612a71f78553ec0800000000000000
+      internalID: -3587864225250142590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_11
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 2440
+        width: 94
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d5b67aea791c830800000000000000
+      internalID: 4089716713018055974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2388
+        width: 116
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6610335461f47cf30800000000000000
+      internalID: 4595728901823725926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_13
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 2388
+        width: 94
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0164e28d42905f0800000000000000
+      internalID: -790059748718931791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2336
+        width: 116
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4d3120231620620800000000000000
+      internalID: 2738858390805796016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_15
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 2336
+        width: 116
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26cd97be937d1b590800000000000000
+      internalID: -7660104847416763294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2284
+        width: 116
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abc1115f07faf9660800000000000000
+      internalID: 7394822012848381114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_17
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 2283
+        width: 103
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc3336fa03f5cf20800000000000000
+      internalID: 3442424718600387796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2230
+        width: 119
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 719e50c4693256640800000000000000
+      internalID: 5072499683730254103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_19
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 2230
+        width: 119
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7db47ec1d6350d0800000000000000
+      internalID: -3435282119846537235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2177
+        width: 119
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006eb45223d6a1db0800000000000000
+      internalID: -4820420389005171200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_21
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 2177
+        width: 117
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 730f39b432c16b640800000000000000
+      internalID: 5095290966333714487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2123
+        width: 116
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f951ee40ae7a998b0800000000000000
+      internalID: -5144896475747183201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_23
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 2123
+        width: 116
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85858d15a1a7dd90800000000000000
+      internalID: -7073006959225109110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2069
+        width: 119
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7356b7a4c59405e60800000000000000
+      internalID: 7948934003044345143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_25
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 2069
+        width: 116
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b2299efd9041bb0800000000000000
+      internalID: -4966333631781786757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_26
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2015
+        width: 119
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e79af526c4b42430800000000000000
+      internalID: 3757326752267540455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_27
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 2015
+        width: 117
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77240f016c9c0f0a0800000000000000
+      internalID: -6849753180705635721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1961
+        width: 56
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f98d91116c1c7e6c0800000000000000
+      internalID: -4114106678145066849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_29
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 1960
+        width: 118
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5debd7cb86ab51470800000000000000
+      internalID: 8364796841912286933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1905
+        width: 116
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436c46673801cc3c0800000000000000
+      internalID: -4338074184251554252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_31
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1904
+        width: 111
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 622955f12412af610800000000000000
+      internalID: 1655672380889338406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1848
+        width: 119
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c95e4f1cc9a8e6e0800000000000000
+      internalID: -1808008556225603132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_33
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 1848
+        width: 111
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 384796347adaa2f00800000000000000
+      internalID: 1092876793492894851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_34
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1792
+        width: 111
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d158cc1765682140800000000000000
+      internalID: 4695114105072669143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_35
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1791
+        width: 116
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a321686505c33e0800000000000000
+      internalID: -2072693395950519790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_36
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1734
+        width: 111
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfca1e03202b797b0800000000000000
+      internalID: -5217505920805655301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_37
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1733
+        width: 116
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c479628a2420610800000000000000
+      internalID: 1585903308757224522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_38
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1674
+        width: 94
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1724b6270b70cfed0800000000000000
+      internalID: -2379018048743193999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_39
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1674
+        width: 111
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e1d55b34f030030800000000000000
+      internalID: 3459625722230677061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_40
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1614
+        width: 94
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08623a071ab48820800000000000000
+      internalID: 2919663066561013770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_41
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1614
+        width: 119
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd81db1f05b6a070800000000000000
+      internalID: 8117374454877752771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_42
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1554
+        width: 111
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08309f814d46a400800000000000000
+      internalID: 335040166262487054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_43
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1606
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101b8d616b16021d0800000000000000
+      internalID: -3377592285832630015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_44
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1554
+        width: 117
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fefc806ecf4e71a70800000000000000
+      internalID: 8797752171933781999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_45
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1493
+        width: 105
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330c353bdc03e0740800000000000000
+      internalID: 5120083486401871923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_46
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1493
+        width: 94
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c34c5bf3d87f8620800000000000000
+      internalID: 2778572346961445827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_47
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1432
+        width: 77
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ca7cd1988b8953c0800000000000000
+      internalID: -4370308544707396923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_48
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1432
+        width: 77
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fbf61af6a02c2520800000000000000
+      internalID: 2678551779911072758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_49
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1371
+        width: 111
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b7c58f7d8cb07790800000000000000
+      internalID: -7534314860674955344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_50
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1371
+        width: 84
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a38b84d94bcfbb30800000000000000
+      internalID: 4305383286748447654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_51
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1309
+        width: 88
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cde21054833a9e80800000000000000
+      internalID: -8171161930538226236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_52
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1309
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b452b71ebf18eb0800000000000000
+      internalID: -4719213988655314123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_53
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1247
+        width: 117
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1626ebe906cabeba0800000000000000
+      internalID: -6058559342716755359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_54
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1185
+        width: 117
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a0c2bc3eb5dbe10800000000000000
+      internalID: 2215027625660517011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_55
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1241
+        width: 81
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdaeaa2068283a0c0800000000000000
+      internalID: -4565662085141566756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_56
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1184
+        width: 94
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9b033828c978f70800000000000000
+      internalID: 9189485649033476585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_57
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1119
+        width: 77
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d28d925e844cc990800000000000000
+      internalID: -7364435912595504430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_58
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1119
+        width: 81
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f7c173ee1b508c0800000000000000
+      internalID: -4033622254555463849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_59
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1054
+        width: 111
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a12787e7820a8070800000000000000
+      internalID: 8109296861762232736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_60
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1053
+        width: 120
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b58f980b383c050800000000000000
+      internalID: 5819639937745050440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_61
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 987
+        width: 118
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab386fe4ab1024560800000000000000
+      internalID: 7296396245993948090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_62
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 986
+        width: 111
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b0bd61170fac190800000000000000
+      internalID: -7941270624409023659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_63
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 917
+        width: 83
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8676502c500c9f10800000000000000
+      internalID: 2277695907222156940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_64
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 917
+        width: 107
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce658a6a03f65050800000000000000
+      internalID: 5789081597093703366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_65
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 847
+        width: 105
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c95fc40384dad10800000000000000
+      internalID: 2138444770357648439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_66
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 847
+        width: 116
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8208a7f9b81ad5170800000000000000
+      internalID: 8168862920168079400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_67
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 775
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 134d577eebc4bc5a0800000000000000
+      internalID: -6500017254368422863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_68
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 775
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382ff348c57e7e850800000000000000
+      internalID: 6406343379499610755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_69
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 775
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 741e99832f9e828e0800000000000000
+      internalID: -1717866031300878009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_70
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 775
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776a2d04ad97d2df0800000000000000
+      internalID: -203372429864425865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_71
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 775
+        width: 43
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646e927c958b1eec0800000000000000
+      internalID: -3539345136403487162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_72
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 702
+        width: 84
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35ad28c7249fc860800000000000000
+      internalID: 7552417998706681148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_73
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 701
+        width: 95
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5bc1d41d01a6060800000000000000
+      internalID: 6947383866300347824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_74
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 699
+        width: 42
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddaca798b26a389d0800000000000000
+      internalID: -2773190239609763107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_75
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 623
+        width: 117
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac32a9bd500d6e750800000000000000
+      internalID: 6333978649520907210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_76
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 622
+        width: 55
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9258540044320f0800000000000000
+      internalID: -1142995112464930385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_77
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 565
+        width: 94
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecbd4da6464ef2390800000000000000
+      internalID: -7840797306288546866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_78
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 543
+        width: 43
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93569d007bda16b20800000000000000
+      internalID: 3125970617876702521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_79
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 541
+        width: 70
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f40c60b413c72f40800000000000000
+      internalID: 5703741946714653938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 447
+        width: 118
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afdd6b621097230a0800000000000000
+      internalID: -6903322232954102278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_81
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 453
+        width: 91
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0847cb750d4f80c00800000000000000
+      internalID: 867212103931163776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_82
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 356
+        width: 117
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c589b8417a9a81790800000000000000
+      internalID: -7559105439472052132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_83
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 435
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f97de0c6434f3d30800000000000000
+      internalID: 4413320131009935856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_84
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 355
+        width: 117
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052de493b38702b60800000000000000
+      internalID: 7719301957072900688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_85
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 267
+        width: 117
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f23a0bd008774f0a0800000000000000
+      internalID: -6848717741454482641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_86
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 257
+        width: 119
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f024805a92479f0800000000000000
+      internalID: -471706272182169838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 197
+        width: 93
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ce2369e1dd112a0800000000000000
+      internalID: -6768385641522467817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_88
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 128
+        width: 79
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3ca7881ebd8a810800000000000000
+      internalID: 1776911814701532140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_89
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 158
+        width: 105
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2610a38e7e5947280800000000000000
+      internalID: -9046440928214384286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Hungry Hearts Diner 2 - Food_90
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 30
+        width: 105
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c472a7766ea8f410800000000000000
+      internalID: 1511149430099834054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

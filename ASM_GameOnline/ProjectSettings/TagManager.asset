@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Item
+  - Point A
+  - Point B
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
+  - Item
   - 
   - 
   - 
@@ -42,6 +45,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Character
+    uniqueID: 2150381119
+    locked: 0
+  - name: Item
+    uniqueID: 2072194747
     locked: 0
   m_RenderingLayers:
   - Default

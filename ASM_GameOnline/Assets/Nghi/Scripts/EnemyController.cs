@@ -1,101 +1,201 @@
 ﻿using UnityEngine;
+using Fusion;
+using System.Collections.Generic;
+using System.Collections;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : NetworkBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] private float walkSpeed = 2f;
+    [Header("AI Settings")]
+    [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float chaseSpeed = 4f;
-    [SerializeField] private float detectionRange = 5f;
-    [SerializeField] private float attackRange = 1f;
-    public int AttackDamage = 20; // Sát thương
+    [SerializeField] private float detectionRange = 10f;
+    [SerializeField] private float attackRange = 1f; // Đánh khi trong 1m
+    [SerializeField] private float chaseStopRange = 5f; // Ngưng chase khi >5m
+    [SerializeField] private float attackCooldown = 1f;
 
-    [Header("Waypoints & Player")]
-    [SerializeField] private Transform pointA, pointB;
-    [SerializeField] private Transform player;
+    [Header("Auto Setup")]
+    private Transform pointA;
+    private Transform pointB;
+    private Transform currentTargetPoint;
+
+    [Header("References")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask playerLayer;
 
-    private Rigidbody2D rb;
-    private Animator animator;
-    private EnemyStateMachine stateMachine;
+    private GameObject currentTargetPlayer;
+    private Coroutine attackRoutine;
 
-    public Transform Player => player;
-    public float WalkSpeed => walkSpeed;
-    public float ChaseSpeed => chaseSpeed;
-    public float AttackRange => attackRange;
-    public Transform PointA => pointA;
-    public Transform PointB => pointB;
+    private enum State { Patrol, Chase, Attack }
+    private State currentState = State.Patrol;
 
-    public bool IsPlayerDetected { get; private set; }
-    public bool IsInAttackRange { get; private set; }
-    public Transform PlayerTransform { get; private set; }
-
-    public GameObject[] targets;
-
-    private void Awake()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        stateMachine = new EnemyStateMachine(this);
-        //PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Tìm Player
+        pointA = GameObject.Find("PointA")?.transform;
+        pointB = GameObject.Find("PointB")?.transform;
+
+        if (pointA == null || pointB == null)
+        {
+            Debug.LogError("⚠️ Không tìm thấy PointA hoặc PointB trong scene!");
+            enabled = false;
+            return;
+        }
+
+        currentTargetPoint = pointB;
+
+        if (animator == null) animator = GetComponent<Animator>();
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        targets = GameObject.FindGameObjectsWithTag("Player");
-        if (targets.Length == 0) return;
-
-        GameObject target = null;
-        float minDistance = Mathf.Infinity;
-        foreach (var t in targets)
+        // Tìm Player gần nhất
+        Collider2D playerInRange = Physics2D.OverlapCircle(transform.position, detectionRange, playerLayer);
+        if (playerInRange != null)
         {
-            var distance = Vector3.Distance(t.transform.position, transform.position);
-            if (distance<minDistance)
+            currentTargetPlayer = playerInRange.gameObject;
+            float distance = Vector2.Distance(transform.position, currentTargetPlayer.transform.position);
+
+            if (distance <= attackRange)
             {
-                minDistance = distance;
-                target = t;
+                if (currentState != State.Attack)
+                {
+                    currentState = State.Attack;
+                    StartAttackLoop();
+                }
+            }
+            else if (distance <= chaseStopRange)
+            {
+                StopAttackLoop();
+                currentState = State.Chase;
+            }
+            else
+            {
+                StopAttackLoop();
+                currentState = State.Patrol;
             }
         }
-
-        if (target != null)
+        else
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.linearVelocity = direction * walkSpeed;
+            currentTargetPlayer = null;
+            StopAttackLoop();
+            currentState = State.Patrol;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        switch (currentState)
+        {
+            case State.Patrol:
+                Patrol();
+                break;
+            case State.Chase:
+                Chase();
+                break;
+            case State.Attack:
+                Attack(); // dừng movement và giữ hướng
+                break;
         }
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        IsPlayerDetected = distanceToPlayer < detectionRange;
-        IsInAttackRange = distanceToPlayer < attackRange;
-
-        stateMachine.Update();
+        UpdateAnimation();
     }
 
-    public EnemyStateMachine GetStateMachine()
+    private void Patrol()
     {
-        return stateMachine;
+        Vector2 dir = (currentTargetPoint.position - transform.position).normalized;
+        rb.linearVelocity = dir * patrolSpeed;
+
+        float distance = Vector2.Distance(transform.position, currentTargetPoint.position);
+        if (distance < 0.5f)
+            currentTargetPoint = (currentTargetPoint == pointA) ? pointB : pointA;
+
+        Flip(dir.x);
     }
 
-    public void Move(float speed)
+    private void Chase()
     {
-        rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
-        transform.localScale = new Vector3(Mathf.Sign(speed), 1, 1);
+        if (currentTargetPlayer == null) return;
+
+        Vector2 dir = (currentTargetPlayer.transform.position - transform.position).normalized;
+        rb.linearVelocity = dir * chaseSpeed;
+
+        Flip(dir.x);
     }
 
-    public void Stop()
+    private void Attack()
     {
         rb.linearVelocity = Vector2.zero;
+
+        if (currentTargetPlayer != null)
+        {
+            float dirX = currentTargetPlayer.transform.position.x - transform.position.x;
+            Flip(dirX);
+        }
     }
 
-    public void SetAnimation(string anim)
+    private IEnumerator AttackLoop()
     {
-        animator.Play(anim);
+        while (true)
+        {
+            if (currentTargetPlayer == null) yield break;
+
+            float distance = Vector2.Distance(transform.position, currentTargetPlayer.transform.position);
+            if (distance > attackRange) yield break;
+
+            rb.linearVelocity = Vector2.zero;
+
+            int randomAttack = Random.Range(0, 8);
+            animator.SetInteger("AttackIndex", randomAttack);
+            animator.SetTrigger("isAttack");
+
+            yield return new WaitForSeconds(attackCooldown);
+        }
     }
 
-    public void Attack()
+    private void StartAttackLoop()
     {
-        int randomAttack = Random.Range(0, 3);
-        string attackAnim = $"Male_SoulBender_Attack{randomAttack}";
-        SetAnimation(attackAnim);
+        if (attackRoutine == null)
+            attackRoutine = StartCoroutine(AttackLoop());
     }
+
+    private void StopAttackLoop()
+    {
+        if (attackRoutine != null)
+        {
+            StopCoroutine(attackRoutine);
+            attackRoutine = null;
+        }
+    }
+
+    private void UpdateAnimation()
+    {
+        bool isMoving = rb.linearVelocity.magnitude > 0.1f;
+
+        animator.SetBool("isWalk", currentState == State.Patrol && isMoving);
+        animator.SetBool("isRun", currentState == State.Chase && isMoving);
+    }
+
+    private void Flip(float directionX)
+    {
+        if (directionX == 0) return;
+        transform.localScale = new Vector3(Mathf.Sign(directionX), 1, 1);
+    }
+
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, chaseStopRange);
+    }
+
+   
 }
 
 

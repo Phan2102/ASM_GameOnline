@@ -322,8 +322,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2144586177
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -1483407423975865499, guid: 6ec3a130357abf844b2b5396af711d69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -462,7 +462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4baebb361c11e4fabc4914b0f611e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  _CurrentHealth: 0
+  MaxHealth: 100
+  healthText: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &1680528483001761118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +484,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 4451943232485749759}
+  - {fileID: 5690114375066732052}
   - {fileID: 1475661023582322588}
   - {fileID: 8589739987779012884}
   ForceRemoteRenderTimeframe: 0
@@ -518,6 +522,9 @@ MonoBehaviour:
   _NetworkedAnimation: 0
   networkRunner: {fileID: 0}
   networkObject: {fileID: 0}
+  Name: 
+  FollowCamera: {fileID: 0}
+  _NetworkedName: 
 --- !u!1 &7722303111693923829
 GameObject:
   m_ObjectHideFlags: 0

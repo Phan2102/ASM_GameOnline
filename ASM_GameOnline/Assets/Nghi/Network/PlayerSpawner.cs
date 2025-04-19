@@ -13,7 +13,7 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
     {
         Debug.Log($"Player joined: {player.PlayerId}, Total players: {Runner.ActivePlayers.Count()}");
 
-        if (Runner.IsServer || Runner.LocalPlayer == player)
+        if (player == Runner.LocalPlayer)
         {
             var position = new Vector2(-5, 0);
             Runner.Spawn(playerPrefab, position, Quaternion.identity, player, (runner, obj) =>

@@ -1,0 +1,25 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:22d3c512f0c1c967410968b18706bb6b:8c880b29b0d91e5bf769b82da67de76c:b317025d05a7e697bdee0364146f4645$
+#
+:format=40300
+:texture=Jump_TextureFile-default.png
+:size=2048x1024
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+125;0;756;357;268; 0.5;0.5; 0;0;0;0
+126;357;756;357;268; 0.5;0.5; 0;0;0;0
+127;714;756;357;268; 0.5;0.5; 0;0;0;0
+128;1071;756;357;268; 0.5;0.5; 0;0;0;0
+129;1428;756;357;268; 0.5;0.5; 0;0;0;0
+130;0;488;357;268; 0.5;0.5; 0;0;0;0
+131;357;488;357;268; 0.5;0.5; 0;0;0;0
+157;714;488;357;268; 0.5;0.5; 0;0;0;0
+158;1071;488;357;268; 0.5;0.5; 0;0;0;0
+160;1428;488;357;268; 0.5;0.5; 0;0;0;0

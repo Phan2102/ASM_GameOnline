@@ -3,163 +3,163 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    private IEnemyState currentState;
-    private EnemyController enemy;
+//    private IEnemyState currentState;
+//    private EnemyController enemy;
 
-    public EnemyStateMachine(EnemyController enemy)
-    {
-        this.enemy = enemy;
-        ChangeState(new PatrolState());
-    }
+//    public EnemyStateMachine(EnemyController enemy)
+//    {
+//        this.enemy = enemy;
+//        ChangeState(new PatrolState());
+//    }
 
-    public void Update()
-    {
-        currentState?.UpdateState(this);
-    }
+//    public void Update()
+//    {
+//        currentState?.UpdateState(this);
+//    }
 
-    public void ChangeState(IEnemyState newState)
-    {
-        currentState = newState;
-        currentState.EnterState(enemy);
-    }
-}
+//    public void ChangeState(IEnemyState newState)
+//    {
+//        currentState = newState;
+//        currentState.EnterState(enemy);
+//    }
+//}
 
-public interface IEnemyState
-{
-    void EnterState(EnemyController enemy);
-    void UpdateState(EnemyStateMachine stateMachine);
-}
+//public interface IEnemyState
+//{
+//    void EnterState(EnemyController enemy);
+//    void UpdateState(EnemyStateMachine stateMachine);
+//}
 
-public class PatrolState : IEnemyState
-{
-    private EnemyController enemy;
-    private Transform targetPoint;
+//public class PatrolState : IEnemyState
+//{
+//    private EnemyController enemy;
+//    private Transform targetPoint;
 
-    public void EnterState(EnemyController enemy)
-    {
-        this.enemy = enemy;
-        targetPoint = enemy.PointA;
-        enemy.SetAnimation("Male_SoulBender_Walk");
-    }
+//    public void EnterState(EnemyController enemy)
+//    {
+//        this.enemy = enemy;
+//        targetPoint = enemy.PointA;
+//        enemy.SetAnimation("Male_SoulBender_Walk");
+//    }
 
-    public void UpdateState(EnemyStateMachine stateMachine)
-    {
-        if (enemy.IsPlayerDetected)
-        {
-            stateMachine.ChangeState(new ChaseState());
-            return;
-        }
+//    public void UpdateState(EnemyStateMachine stateMachine)
+//    {
+//        if (enemy.IsPlayerDetected)
+//        {
+//            stateMachine.ChangeState(new ChaseState());
+//            return;
+//        }
 
-        float speed = enemy.WalkSpeed * (targetPoint.position.x > enemy.transform.position.x ? 1 : -1);
-        enemy.Move(speed);
+//        float speed = enemy.WalkSpeed * (targetPoint.position.x > enemy.transform.position.x ? 1 : -1);
+//        enemy.Move(speed);
 
-        if (Vector2.Distance(enemy.transform.position, targetPoint.position) < 0.2f)
-        {
-            targetPoint = (targetPoint == enemy.PointA) ? enemy.PointB : enemy.PointA;
-        }
-    }
-}
+//        if (Vector2.Distance(enemy.transform.position, targetPoint.position) < 0.2f)
+//        {
+//            targetPoint = (targetPoint == enemy.PointA) ? enemy.PointB : enemy.PointA;
+//        }
+//    }
+//}
 
-public class ChaseState : IEnemyState
-{
-    private EnemyController enemy;
+//public class ChaseState : IEnemyState
+//{
+//    private EnemyController enemy;
 
-    public void EnterState(EnemyController enemy)
-    {
-        this.enemy = enemy;
-        enemy.SetAnimation("Male_SoulBender_Run");
-    }
+//    public void EnterState(EnemyController enemy)
+//    {
+//        this.enemy = enemy;
+//        enemy.SetAnimation("Male_SoulBender_Run");
+//    }
 
-    public void UpdateState(EnemyStateMachine stateMachine)
-    {
-        if (!enemy.IsPlayerDetected)
-        {
-            stateMachine.ChangeState(new ReturnState());
-            return;
-        }
+//    public void UpdateState(EnemyStateMachine stateMachine)
+//    {
+//        if (!enemy.IsPlayerDetected)
+//        {
+//            stateMachine.ChangeState(new ReturnState());
+//            return;
+//        }
 
-        if (enemy.IsInAttackRange)
-        {
-            stateMachine.ChangeState(new AttackState());
-            return;
-        }
+//        if (enemy.IsInAttackRange)
+//        {
+//            stateMachine.ChangeState(new AttackState());
+//            return;
+//        }
 
-        float speed = enemy.ChaseSpeed * (enemy.Player.position.x > enemy.transform.position.x ? 1 : -1);
-        enemy.Move(speed);
-    }
-}
+//        float speed = enemy.ChaseSpeed * (enemy.Player.position.x > enemy.transform.position.x ? 1 : -1);
+//        enemy.Move(speed);
+//    }
+//}
 
-public class AttackState : IEnemyState
-{
-    private EnemyController enemy;
-    private EnemyStateMachine stateMachine;
+//public class AttackState : IEnemyState
+//{
+//    private EnemyController enemy;
+//    private EnemyStateMachine stateMachine;
 
-    public void EnterState(EnemyController enemy)
-    {
-        this.enemy = enemy;
-        this.stateMachine = enemy.GetStateMachine(); // Lấy stateMachine từ enemy
+//    public void EnterState(EnemyController enemy)
+//    {
+//        this.enemy = enemy;
+//        this.stateMachine = enemy.GetStateMachine(); // Lấy stateMachine từ enemy
 
-        enemy.Stop();
-        enemy.StartCoroutine(AttackRoutine());
-    }
+//        enemy.Stop();
+//        enemy.StartCoroutine(AttackRoutine());
+//    }
 
-    private IEnumerator AttackRoutine()
-    {
-        while (enemy.IsInAttackRange)
-        {
-            enemy.Attack();
+//    private IEnumerator AttackRoutine()
+//    {
+//        while (enemy.IsInAttackRange)
+//        {
+//            enemy.Attack();
 
-            // Kiểm tra xem có trúng Player không
-            if (enemy.Player != null)
-            {
-                HealthSystem playerHealth = enemy.Player.GetComponent<HealthSystem>();
-                if (playerHealth != null)
-                {
-                    playerHealth.TakeDamage(enemy.AttackDamage); // Gây sát thương
-                }
-            }
+//            // Kiểm tra xem có trúng Player không
+//            if (enemy.Player != null)
+//            {
+//                HealthSystem playerHealth = enemy.Player.GetComponent<HealthSystem>();
+//                if (playerHealth != null)
+//                {
+//                    playerHealth.TakeDamage(enemy.AttackDamage); // Gây sát thương
+//                }
+//            }
 
-            yield return new WaitForSeconds(1.5f); // Chờ animation kết thúc
-        }
+//            yield return new WaitForSeconds(1.5f); // Chờ animation kết thúc
+//        }
 
-        if (!enemy.IsInAttackRange)
-        {
-            stateMachine.ChangeState(new ChaseState()); // Sửa lỗi không tìm thấy stateMachine
-        }
-    }
+//        if (!enemy.IsInAttackRange)
+//        {
+//            stateMachine.ChangeState(new ChaseState()); // Sửa lỗi không tìm thấy stateMachine
+//        }
+//    }
 
-    public void UpdateState(EnemyStateMachine stateMachine)
-    {
-        if (!enemy.IsPlayerDetected)
-        {
-            stateMachine.ChangeState(new ReturnState());
-        }
-    }
-}
+//    public void UpdateState(EnemyStateMachine stateMachine)
+//    {
+//        if (!enemy.IsPlayerDetected)
+//        {
+//            stateMachine.ChangeState(new ReturnState());
+//        }
+//    }
+//}
 
-public class ReturnState : IEnemyState
-{
-    private EnemyController enemy;
+//public class ReturnState : IEnemyState
+//{
+//    private EnemyController enemy;
 
-    public void EnterState(EnemyController enemy)
-    {
-        this.enemy = enemy;
-        enemy.SetAnimation("Male_SoulBender_Walk");
-    }
+//    public void EnterState(EnemyController enemy)
+//    {
+//        this.enemy = enemy;
+//        enemy.SetAnimation("Male_SoulBender_Walk");
+//    }
 
-    public void UpdateState(EnemyStateMachine stateMachine)
-    {
-        float distanceToA = Vector2.Distance(enemy.transform.position, enemy.PointA.position);
-        float distanceToB = Vector2.Distance(enemy.transform.position, enemy.PointB.position);
+//    public void UpdateState(EnemyStateMachine stateMachine)
+//    {
+//        float distanceToA = Vector2.Distance(enemy.transform.position, enemy.PointA.position);
+//        float distanceToB = Vector2.Distance(enemy.transform.position, enemy.PointB.position);
 
-        Transform targetPoint = (distanceToA < distanceToB) ? enemy.PointA : enemy.PointB;
-        float speed = enemy.WalkSpeed * (targetPoint.position.x > enemy.transform.position.x ? 1 : -1);
+//        Transform targetPoint = (distanceToA < distanceToB) ? enemy.PointA : enemy.PointB;
+//        float speed = enemy.WalkSpeed * (targetPoint.position.x > enemy.transform.position.x ? 1 : -1);
 
-        enemy.Move(speed);
+//        enemy.Move(speed);
 
-        if (Vector2.Distance(enemy.transform.position, targetPoint.position) < 0.2f)
-        {
-            stateMachine.ChangeState(new PatrolState());
-        }
-    }
+//        if (Vector2.Distance(enemy.transform.position, targetPoint.position) < 0.2f)
+//        {
+//            stateMachine.ChangeState(new PatrolState());
+//        }
+//    }
 }

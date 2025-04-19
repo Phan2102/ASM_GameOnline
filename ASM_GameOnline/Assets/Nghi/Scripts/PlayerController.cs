@@ -4,88 +4,230 @@ using UnityEngine;
 
 public class PlayerController : NetworkBehaviour
 {
-    //************************
+
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rb;
-
     [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab; // Prefab đạn
+    [SerializeField] private GameObject bulletPrefab;
 
     private float moveInput;
     private bool isGrounded;
+    private bool wasGroundedLastFrame = true;
+    private bool wasFalling = false;
+    //***
+    private bool isLanding = false;
     private bool facingRight = true;
-
+    private bool isAttacking = false;
+    private float attackCooldown = 2f;
+    private float lastAttackTime = -999f;
 
     [Networked] private Vector3 NetworkedPosition { get; set; }
     [Networked] private NetworkBool IsWalking { get; set; }
     [Networked] private NetworkBool IsRunning { get; set; }
-    [Networked] private NetworkBool IsJumping { get; set; }
     [Networked] private NetworkBool IsFacingRight { get; set; }
+    [Networked, OnChangedRender(nameof(OnAttackIndexChanged))] private int AttackIndex { get; set; }
+    [Networked] private NetworkBool IsAttackTrigger { get; set; }
+    [Networked] private NetworkBool IsShooting { get; set; }
+
+    [Networked] private NetworkBool IsJumping { get; set; }
+    [Networked] private NetworkBool IsFalling { get; set; }
+    [Networked] private NetworkBool IsLanding { get; set; }
+    //***
+    private bool wasJumpingLastFrame = false;
+    private bool wasLandingLastFrame = false;
+
+    [Networked] private TickTimer JumpResetTimer { get; set; }
+    [Networked] private TickTimer LandResetTimer { get; set; }
 
     public override void FixedUpdateNetwork()
     {
-        if (IsProxy) return; // Nếu không phải máy local thì không xử lý đầu vào
+        if (!HasStateAuthority) return;
 
-        MovePlayer(); // Gọi trực tiếp MovePlayer() mà không cần UpdateState()
+        HandleInput();
+
+        //***
+        if (JumpResetTimer.Expired(Runner))
+            IsJumping = false;
+
+        if (LandResetTimer.Expired(Runner))
+            IsLanding = false;
     }
 
-    private void MovePlayer()
+    private void HandleInput()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
         bool isJumpPressed = Input.GetKeyDown(KeyCode.Space);
-        bool isShooting = Input.GetMouseButtonDown(0); // Bấm chuột trái để bắn
-        // Xác định tốc độ chạy hoặc đi bộ
+        bool isAttackPressed = Input.GetKeyDown(KeyCode.J);
+        bool isShootPressed = Input.GetKeyDown(KeyCode.O);
+
         float speed = isShiftPressed ? runSpeed : walkSpeed;
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
 
-        // Kiểm tra trạng thái di chuyển
+        // Trạng thái di chuyển ngang
         IsWalking = moveInput != 0 && !isShiftPressed;
         IsRunning = moveInput != 0 && isShiftPressed;
 
-        // Nhảy
         if (isJumpPressed && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            animator.ResetTrigger("isLand");      // Reset trước để tránh bug
+            animator.ResetTrigger("isJumping");   // Reset trước rồi mới set lại
+            animator.SetTrigger("isJumping");
+
+            //***
             IsJumping = true;
-        }
-        else if (rb.linearVelocity.y == 0)
-        {
-            IsJumping = false;
+            JumpResetTimer = TickTimer.CreateFromSeconds(Runner, 0.3f); // Tuỳ thời lượng animation
+            IsFalling = false;
+            IsLanding = false;
+
+            // Reset trạng thái sau animation
+            StartCoroutine(ResetJumpTrigger());
         }
 
-        // Lật nhân vật theo hướng di chuyển
+        // Flip
         if (moveInput > 0 && !facingRight) FlipCharacter(true);
         else if (moveInput < 0 && facingRight) FlipCharacter(false);
 
-        // Cập nhật trạng thái lên Network
         NetworkedPosition = transform.position;
         IsFacingRight = facingRight;
 
-        if (isShooting)
+        // Tấn công
+        if (isAttackPressed && !isAttacking && Time.time - lastAttackTime > attackCooldown)
         {
-            animator.SetTrigger("isShooting"); // Kích hoạt animation bắn
+            lastAttackTime = Time.time;
+            StartCoroutine(PerformAttack());
         }
+
+        // Bắn
+        if (isShootPressed)
+        {
+            IsShooting = true;
+            animator.SetTrigger("isShooting");
+        }
+
+        // -------------------- FALL --------------------
+        if (!isGrounded && rb.linearVelocity.y < -0.1f)
+        {
+            animator.SetBool("isFalling", true);
+            //***
+            IsFalling = true;
+        }
+        else if (isGrounded)
+        {
+            animator.SetBool("isFalling", false);
+            //***
+            IsLanding = false;
+        }
+
+        // -------------------- LAND --------------------
+        if (!wasGroundedLastFrame && isGrounded)
+        {
+            isLanding = true;
+            animator.SetTrigger("isLand");
+            LandResetTimer = TickTimer.CreateFromSeconds(Runner, 0.3f);
+            //***
+            IsJumping = false;
+            IsFalling = false;
+            IsLanding = true;
+
+            StartCoroutine(ResetLandTrigger());
+        }
+
+        // Update network
+        NetworkedPosition = transform.position;
+        IsFacingRight = facingRight;
+
+        // Update trạng thái grounded frame trước
+        wasGroundedLastFrame = isGrounded;
+    }
+
+    private IEnumerator ResetLandTrigger()
+    {
+        yield return new WaitForSeconds(0.3f); // Thời lượng animation land
+        animator.ResetTrigger("isLand");
+        isLanding = false;
+    }
+
+    private IEnumerator ResetJumpTrigger()
+    {
+        yield return new WaitForSeconds(0.1f); // Tùy theo thời gian Trigger
+        //!!!!!!!!!!!!!!!!!!
+        //IsJumping = false;
+    }
+
+    IEnumerator PerformAttack()
+    {
+        //isAttacking = true;
+        IsAttackTrigger = true;
+
+        AttackIndex = Random.Range(0, 6);
+        //animator.SetInteger("AttackIndex", AttackIndex);
+        //animator.SetTrigger("isAttack");
+
+        yield return new WaitForSeconds(attackCooldown);
+        isAttacking = false;
     }
 
     public override void Render()
     {
-        // Cập nhật vị trí từ Network
         transform.position = NetworkedPosition;
 
-        // Cập nhật animation
-        animator.SetBool("isWalking", IsWalking);
-        animator.SetBool("isRunning", IsRunning);
-        animator.SetBool("isJumping", IsJumping);
+        //***
+        animator.SetBool("isFalling", IsFalling);
+        //if (IsJumping) animator.SetTrigger("isJumping");
+        //if (IsLanding) animator.SetTrigger("isLand");
+        //***
 
-        // Cập nhật Flip hướng quay mặt
+        if (!isLanding) // Đừng đụng tới Idle/Fall/Jump nếu đang Land
+        {
+            animator.SetBool("isWalking", IsWalking);
+            animator.SetBool("isRunning", IsRunning);
+        }
+
         if (IsFacingRight != facingRight)
         {
             FlipCharacter(IsFacingRight);
         }
+
+        if (IsShooting)
+        {
+            animator.SetTrigger("isShooting");
+            IsShooting = false;
+        }
+
+        // 👉 CHỈ PHÁT Trigger Jump nếu vừa mới nhảy
+        if (IsJumping && !wasJumpingLastFrame)
+        {
+            animator.SetTrigger("isJumping");
+        }
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // ✅ Nếu không còn nhảy nhưng frame trước là nhảy → Reset trigger lại
+        else if (!IsJumping && wasJumpingLastFrame)
+        {
+            animator.ResetTrigger("isJumping");
+        }
+
+        // 👉 CHỈ PHÁT Trigger Land nếu vừa mới tiếp đất
+        if (IsLanding && !wasLandingLastFrame)
+        {
+            animator.SetTrigger("isLand");
+        }
+
+        // 👉 Cập nhật biến tạm để so sánh ở frame sau
+        wasJumpingLastFrame = IsJumping;
+        wasLandingLastFrame = IsLanding;
+    }
+
+
+    private void OnAttackIndexChanged()
+    {
+        animator.SetInteger("AttackIndex", AttackIndex);
+        animator.SetTrigger("isAttack");
     }
 
     private void FlipCharacter(bool faceRight)
@@ -98,6 +240,10 @@ public class PlayerController : NetworkBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
             isGrounded = true;
+
+        // 🔒 Đảm bảo triệt tiêu Jump/Fall khi tiếp đất
+        IsJumping = false;
+        IsFalling = false;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -106,10 +252,10 @@ public class PlayerController : NetworkBehaviour
             isGrounded = false;
     }
 
-    //**Hàm này sẽ được gọi bởi Animation Event khi đến frame bắn**
+    // Gọi bởi animation event
     public void Shoot()
     {
-        if (!Object.HasStateAuthority) return; // Chỉ máy chủ hoặc máy local có quyền bắn
+        if (!HasStateAuthority) return;
 
         Runner.Spawn(bulletPrefab, firePoint.position, Quaternion.identity, Object.InputAuthority, (runner, obj) =>
         {

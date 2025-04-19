@@ -7,16 +7,20 @@ public class Bullet : NetworkBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float lifeTime = 3f;
     private int direction;
-
+    //***
+    [Networked] private float Direction { get; set; }
     public void Initialize(int dir)
     {
         direction = dir;
+        Direction = direction;
         Invoke(nameof(DestroyBullet), lifeTime);
     }
 
     public override void FixedUpdateNetwork()
     {
-        transform.position += new Vector3(direction * speed * Runner.DeltaTime, 0, 0);
+        //transform.position += new Vector3(direction * speed * Runner.DeltaTime, 0, 0);
+        //transform.Translate(Vector2.right * direction * speed * Runner.DeltaTime);
+        transform.position += transform.right * Direction * speed * Runner.DeltaTime;
     }
 
     private void DestroyBullet()
