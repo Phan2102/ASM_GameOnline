@@ -634,8 +634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leaderboardPanel: {fileID: 1014173387}
-  entryParent: {fileID: 1014173388}
-  entryPrefab: {fileID: 2059388201697012178, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
+  rankingPanel: {fileID: 500171851}
+  rankingEntryPrefab: {fileID: 8561617960811238652}
 --- !u!1 &1014173387
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1014173388
 RectTransform:
   m_ObjectHideFlags: 0
@@ -744,7 +744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8734559390323623277, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8734559390323623277, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
       propertyPath: m_AnchorMin.x
@@ -752,7 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8734559390323623277, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8734559390323623277, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
       propertyPath: m_SizeDelta.x
@@ -792,11 +792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8734559390323623277, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 460
       objectReference: {fileID: 0}
     - target: {fileID: 8734559390323623277, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -38.88
       objectReference: {fileID: 0}
     - target: {fileID: 8734559390323623277, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -815,6 +815,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
+--- !u!1 &8561617960811238652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2059388201697012178, guid: 54413e077cd4a5146be7124cedb7b922, type: 3}
+  m_PrefabInstance: {fileID: 8561617960811238651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

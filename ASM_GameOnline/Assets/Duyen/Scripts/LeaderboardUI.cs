@@ -1,48 +1,44 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
-using System.Linq;
-using static Unity.Collections.Unicode;
-using static UnityEngine.EventSystems.EventTrigger;
+using Fusion;
 
 public class LeaderboardUI : MonoBehaviour
 {
     [SerializeField] private GameObject leaderboardPanel;
-    [SerializeField] private Transform entryParent;
-    [SerializeField] private GameObject entryPrefab;
+    [SerializeField] private Transform rankingPanel;
+    [SerializeField] private GameObject rankingEntryPrefab;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             leaderboardPanel.SetActive(true);
-            UpdateLeaderboard();
+            UpdateRanking();
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
             leaderboardPanel.SetActive(false);
         }
+
+        if (Time.frameCount % 60 == 0) 
+            UpdateRanking();
     }
 
-    public void UpdateLeaderboard()
+    public void UpdateRanking()
     {
-        /*if (player.Object.InputAuthority == Runner.LocalPlayer)
-        {
-            entry.GetComponent<TextMeshProUGUI>().color = Color.yellow;
-        }
-
-
-        foreach (Transform child in entryParent)
+        foreach (Transform child in rankingPanel)
         {
             Destroy(child.gameObject);
         }
 
-        var players = FindObjectsOfType<PlayerNetwork>()
-                      .OrderByDescending(p => p.KillCount);
-
-        foreach (var player in players)
+        // Lấy danh sách player hiện tại
+        foreach (var player in FindObjectsOfType<PlayerProperties>())
         {
-            GameObject entry = Instantiate(entryPrefab, entryParent);
-            entry.GetComponent<TextMeshProUGUI>().text = $"{player.PlayerName} - {player.KillCount} kills";
-        }*/
+            var entry = Instantiate(rankingEntryPrefab, rankingPanel);
+            var text = entry.GetComponent<TextMeshProUGUI>();
+            //text.text = $"{player.NetworkedName} - {player.KillCount} kills";
+        }
+
     }
+
 }
