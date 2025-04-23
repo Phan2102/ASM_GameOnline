@@ -5,52 +5,99 @@ using UnityEngine;
 
 public class HealthSystem : NetworkBehaviour
 {
-    [Networked] public int CurrentHealth { get; set; }
-    public int MaxHealth = 100;
-
-    [SerializeField] private TMP_Text healthText;
+    [Networked] public int Health { get; set; }
+    [SerializeField] private int maxHealth = 100;
     [SerializeField] private Animator animator;
 
-    public override void Spawned()
+    private void Start()
     {
-        if (Object.HasStateAuthority)
-        {
-            CurrentHealth = MaxHealth;
-        }
-        UpdateHealthUI();
+        Health = maxHealth;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int dmg)
     {
-        if (!Object.HasStateAuthority) return;
+        if (!HasStateAuthority) return;
 
-        CurrentHealth = Mathf.Max(CurrentHealth - amount, 0);
-        RPC_TakeHit();
-        UpdateHealthUI();
+        Health -= dmg;
+        Health = Mathf.Max(Health, 0);
+        RPC_PlayHitAnim();
 
-        if (CurrentHealth <= 0)
+        if (Health <= 0)
         {
-            Debug.Log($"{gameObject.name} died!");
-            // Gọi Animation chết ở đây nếu có
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player Dead");
+        // TODO: Respawn hoặc GameOver
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    private void RPC_TakeHit()
+    private void RPC_PlayHitAnim()
     {
         if (animator != null)
+            Debug.Log("Player hurt!");
             animator.SetTrigger("isHurt");
-
-        UpdateHealthUI();
     }
 
-    private void UpdateHealthUI()
+    public void Heal(int amount)
     {
-        if (healthText != null)
-        {
-            healthText.text = $"{CurrentHealth}/{MaxHealth}";
-        }
+        if (!HasStateAuthority) return;
+
+        Health += amount;
+        Debug.Log("Healed! Current HP: " + Health);
     }
+
+    //[Networked] public int CurrentHealth { get; set; }
+    //public int MaxHealth = 100;
+
+    //[SerializeField] private TMP_Text healthText;
+    //[SerializeField] private Animator animator;
+
+    //public override void Spawned()
+    //{
+    //    if (Object.HasStateAuthority)
+    //    {
+    //        CurrentHealth = MaxHealth;
+    //    }
+    //    UpdateHealthUI();
+    //}
+
+    //public void TakeDamage(int amount)
+    //{
+    //    if (!Object.HasStateAuthority) return;
+
+    //    CurrentHealth = Mathf.Max(CurrentHealth - amount, 0);
+    //    RPC_TakeHit();
+    //    UpdateHealthUI();
+
+    //    if (CurrentHealth <= 0)
+    //    {
+    //        Debug.Log($"{gameObject.name} died!");
+    //        // Gọi Animation chết ở đây nếu có
+    //    }
+    //}
+
+    //[Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    //private void RPC_TakeHit()
+    //{
+    //    if (animator != null)
+    //        animator.SetTrigger("isHurt");
+
+    //    UpdateHealthUI();
+    //}
+
+    //private void UpdateHealthUI()
+    //{
+    //    if (healthText != null)
+    //    {
+    //        healthText.text = $"{CurrentHealth}/{MaxHealth}";
+    //    }
+    //}
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     //[SerializeField] private int maxHealth = 100;
     //private int currentHealth;
@@ -86,5 +133,5 @@ public class HealthSystem : NetworkBehaviour
     //    //Destroy(gameObject); // Mặc định hủy object khi chết
     //}
 
-    public int GetHealth() => CurrentHealth;
+    public int GetHealth() => Health;
 }

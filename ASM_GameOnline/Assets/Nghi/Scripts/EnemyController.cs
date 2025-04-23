@@ -29,6 +29,10 @@ public class EnemyController : NetworkBehaviour
     private enum State { Patrol, Chase, Attack }
     private State currentState = State.Patrol;
 
+    public int damage = 25;
+    public Transform attackPoint;
+
+
     private void Start()
     {
         pointA = GameObject.Find("PointA")?.transform;
@@ -125,6 +129,22 @@ public class EnemyController : NetworkBehaviour
 
     private void Attack()
     {
+        //**************************
+        if (!HasStateAuthority) return;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        foreach (var hit in hits)
+        {
+            HitBox box = hit.GetComponent<HitBox>();
+            if (box != null && box.type == HitBox.HitBoxType.Player)
+            {
+                var health = box.owner.GetComponent<HealthSystem>();
+                health?.TakeDamage(damage);
+            }
+        }
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         rb.linearVelocity = Vector2.zero;
 
         if (currentTargetPlayer != null)
@@ -188,11 +208,15 @@ public class EnemyController : NetworkBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        
+        //Gizmos.DrawWireSphere(transform.position, attackRange);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, chaseStopRange);
+
+        Gizmos.color = Color.red;
+        if (attackPoint != null)
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
    
