@@ -11,6 +11,41 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
 
     public NetworkPrefabRef _malePlayerPrefabs;
     public NetworkPrefabRef _femalePlayerPrefab;
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    private NetworkObject spawnedEnemy;
+    [SerializeField] private NetworkPrefabRef[] enemyPrefabs;
+    public void SpawnEnemy()
+    {
+        if (_runner == null || !_runner.IsRunning || !_runner.IsServer)
+        {
+            Debug.LogWarning("Runner not ready yet, cannot spawn enemy.");
+            Debug.Log($"_runner: {_runner}, IsRunning: {_runner?.IsRunning}, IsServer: {_runner?.IsServer}");
+            return;
+        }
+
+        if (enemyPrefabs == null || enemyPrefabs.Length == 0)
+        {
+            Debug.LogError("enemyPrefabs is null or empty!");
+            return;
+        }
+
+        var enemyPrefab = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
+        var spawnPos = new Vector3(UnityEngine.Random.Range(-15, -5), 1, UnityEngine.Random.Range(-15, -5));
+        
+        spawnedEnemy = _runner.Spawn(
+            enemyPrefab,
+            spawnPos,
+            Quaternion.identity,
+            null,
+            (runner, obj) =>
+            {
+                Debug.Log("Enemy Spawned: " + obj.name);
+            }
+        );
+
+        
+    }
     //Khởi tạo các biến
     private void Awake()
     {
@@ -56,6 +91,7 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
     private void Start()
     {
         InvokeRepeating(nameof(SpawnCharacter), 5, 5);
+        InvokeRepeating(nameof(SpawnEnemy), 20f, 20f); // Enemy sẽ spawn sau 7s và cách nhau 15s
     }
 
     public NetworkPrefabRef[] characterPrefabRefs;
@@ -174,10 +210,13 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
                 Debug.Log("Player spawned: " + o.Id);
 
                 //KHỞI TẠO NETWORK TRONG GUN
+                
+            });
 
-            }
 
-            );
+
+
+
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)

@@ -380,6 +380,12 @@ MonoBehaviour:
   rb: {fileID: 4349369259104280643}
   firePoint: {fileID: 3206112277150075753}
   bulletPrefab: {fileID: 6818993797482467374, guid: ac9e7bfc8302e8740a9ead58a3b85c9a, type: 3}
+  damage: 20
+  attackRange: 1.5
+  attackPoint: {fileID: 2150660686427058679}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &2136738349988965370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,9 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4baebb361c11e4fabc4914b0f611e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CurrentHealth: 0
-  MaxHealth: 100
-  healthText: {fileID: 8408834398342317188}
+  _Health: 0
+  maxHealth: 100
   animator: {fileID: 97013031190250782}
 --- !u!114 &988275430661310527
 MonoBehaviour:
@@ -468,9 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7540a9a265cd96479517596fd99cf8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMessage: {fileID: 0}
-  inputFieldMessage: {fileID: 0}
-  sendButton: {fileID: 0}
 --- !u!1 &4625491584243432401
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,9 +484,9 @@ GameObject:
   - component: {fileID: 2150660686427058679}
   - component: {fileID: 3384455675959073660}
   - component: {fileID: 7589675189830771957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -562,11 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0df085202752e741b7dde977201e98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  ownerTag: Player
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  type: 1
+  owner: {fileID: 2136738349988965370}
 --- !u!1 &4684445976718801025
 GameObject:
   m_ObjectHideFlags: 0

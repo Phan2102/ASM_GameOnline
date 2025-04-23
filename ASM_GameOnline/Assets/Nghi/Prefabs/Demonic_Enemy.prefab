@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6682994504572921277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27,14 +27,14 @@ RectTransform:
   m_GameObject: {fileID: 365664936206653533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5451851403449473628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -201}
+  m_AnchoredPosition: {x: -0.54, y: 0.6}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1560690216622630563
@@ -172,7 +172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 978.11615, y: 539.4017}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &496758760913330325
@@ -253,7 +253,6 @@ GameObject:
   - component: {fileID: 1925680446026191767}
   - component: {fileID: 2491351408168530697}
   - component: {fileID: 7397706958686511592}
-  - component: {fileID: 9168728711304796233}
   - component: {fileID: -8940790034262498156}
   - component: {fileID: -2517572487271440682}
   m_Layer: 7
@@ -448,7 +447,6 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 7397706958686511592}
-  - {fileID: 9168728711304796233}
   - {fileID: -8940790034262498156}
   - {fileID: -2517572487271440682}
   ForceRemoteRenderTimeframe: 0
@@ -469,22 +467,6 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &9168728711304796233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6839245975157653188}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4baebb361c11e4fabc4914b0f611e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CurrentHealth: 0
-  MaxHealth: 100
-  healthText: {fileID: 291794411610340681}
-  animator: {fileID: 1246885493394371032}
 --- !u!114 &-8940790034262498156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +490,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  damage: 25
+  attackPoint: {fileID: 5963303845343833169}
 --- !u!114 &-2517572487271440682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f796083bf75ea746a12cc888084b20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CurrentHealth: 0
-  MaxHealth: 100
+  _Health: 0
+  maxHealth: 100
   animator: {fileID: 1246885493394371032}
 --- !u!1 &8840332044270275264
 GameObject:
@@ -534,9 +518,9 @@ GameObject:
   - component: {fileID: 5963303845343833169}
   - component: {fileID: 2199263824082611793}
   - component: {fileID: 5561616565870524222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,8 +598,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0df085202752e741b7dde977201e98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  ownerTag: Enemy
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  type: 0
+  owner: {fileID: 2491351408168530697}
