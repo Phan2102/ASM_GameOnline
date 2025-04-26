@@ -12,6 +12,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private float moveInput;
     private bool isGrounded;
@@ -51,18 +52,26 @@ public class PlayerController : NetworkBehaviour
 
     public void Attack()
     {
-        if (!HasInputAuthority) return;
+        if (!HasInputAuthority)
+        {
+            Debug.LogWarning("❌ Không có InputAuthority nên không gọi Attack");
+            return;
+        }
 
-        // Gửi RPC lên server để xử lý
+
         RPC_DoAttack();
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void RPC_DoAttack()
     {
+        Debug.Log("Gọi RPC_DoAttack");
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitMask);
+        Debug.Log("Tìm thấy " + hits.Length + " đối tượng");
         foreach (var hit in hits)
         {
+            Debug.Log("Chạm: " + hit.name);
             HitBox box = hit.GetComponent<HitBox>();
             if (box != null && box.type == HitBox.HitBoxType.Enemy)
             {
@@ -122,11 +131,12 @@ public class PlayerController : NetworkBehaviour
 
     private void HandleInput()
     {
+
         moveInput = Input.GetAxisRaw("Horizontal");
         bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
-        bool isJumpPressed = Input.GetKeyDown(KeyCode.Space);
-        bool isAttackPressed = Input.GetKeyDown(KeyCode.J);
-        bool isShootPressed = Input.GetKeyDown(KeyCode.O);
+        bool isJumpPressed = Input.GetKey(KeyCode.Space);
+        bool isAttackPressed = Input.GetKey(KeyCode.J);
+        bool isShootPressed = Input.GetKey(KeyCode.O);
 
         float speed = isShiftPressed ? runSpeed : walkSpeed;
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
@@ -231,6 +241,7 @@ public class PlayerController : NetworkBehaviour
         AttackIndex = Random.Range(0, 6);
         //animator.SetInteger("AttackIndex", AttackIndex);
         //animator.SetTrigger("isAttack");
+        Attack();
 
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
@@ -296,8 +307,12 @@ public class PlayerController : NetworkBehaviour
 
     private void FlipCharacter(bool faceRight)
     {
+        /*facingRight = faceRight;
+        transform.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);*/
+
         facingRight = faceRight;
-        transform.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);
+        spriteRenderer.flipX = !faceRight;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.54, y: 0.6}
-  m_SizeDelta: {x: 500, y: 100}
+  m_AnchoredPosition: {x: -0.048, y: 0.6}
+  m_SizeDelta: {x: 257.7, y: 73.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1560690216622630563
 CanvasRenderer:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 54.15
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -172,8 +172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: -0.317, y: 0.38}
+  m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &496758760913330325
 Canvas:
@@ -322,7 +322,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2144586177
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: -182299447, guid: e12ffb72465a61142a9e31add544baa5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -371,7 +371,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -466,7 +466,7 @@ MonoBehaviour:
   SyncScale: 0
   SyncParent: 0
   _autoAOIOverride: 1
-  DisableSharedModeInterpolation: 0
+  DisableSharedModeInterpolation: 1
 --- !u!114 &-8940790034262498156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,18 +480,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 2
-  chaseSpeed: 4
+  chaseSpeed: 3
   detectionRange: 10
   attackRange: 1
   chaseStopRange: 5
-  attackCooldown: 2
+  attackCooldown: 2.5
   animator: {fileID: 1246885493394371032}
   rb: {fileID: 4509379430989599503}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  damage: 25
   attackPoint: {fileID: 5963303845343833169}
+  damage: 10
 --- !u!114 &-2517572487271440682
 MonoBehaviour:
   m_ObjectHideFlags: 0

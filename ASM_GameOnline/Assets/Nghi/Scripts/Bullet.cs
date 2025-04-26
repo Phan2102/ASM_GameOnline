@@ -1,6 +1,5 @@
 ﻿using Fusion;
 using UnityEngine;
-using static Unity.Collections.Unicode;
 
 public class Bullet : NetworkBehaviour
 {
@@ -32,9 +31,13 @@ public class Bullet : NetworkBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            HealthSystem_Enemy enemyHealth = collision.GetComponent<HealthSystem_Enemy>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(10);
+                Debug.Log("Hit enemy = bullet");
+            }
             Runner.Despawn(Object);
-            // Enemy nhận sát thương ở đây (nếu có)
-
         }
     }
 

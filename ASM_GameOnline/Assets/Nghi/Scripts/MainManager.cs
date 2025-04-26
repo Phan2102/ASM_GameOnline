@@ -17,7 +17,9 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
     [SerializeField] private NetworkPrefabRef[] enemyPrefabs;
     public void SpawnEnemy()
     {
-        if (_runner == null || !_runner.IsRunning || !_runner.IsServer)
+        //if (_runner == null || !_runner.IsRunning || !_runner.IsServer)
+        if (_runner == null || !_runner.IsRunning || !_runner.IsSharedModeMasterClient)
+
         {
             Debug.LogWarning("Runner not ready yet, cannot spawn enemy.");
             Debug.Log($"_runner: {_runner}, IsRunning: {_runner?.IsRunning}, IsServer: {_runner?.IsServer}");
@@ -31,7 +33,7 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
         }
 
         var enemyPrefab = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
-        var spawnPos = new Vector3(UnityEngine.Random.Range(-15, -5), 1, UnityEngine.Random.Range(-15, -5));
+        var spawnPos = new Vector3(UnityEngine.Random.Range(-6, 6), -2, 0);
         
         spawnedEnemy = _runner.Spawn(
             enemyPrefab,
@@ -111,7 +113,7 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
         }
 
         var characterPrefab = characterPrefabRefs[UnityEngine.Random.Range(0, characterPrefabRefs.Length)];
-        var position = new Vector3(UnityEngine.Random.Range(-10, 10), 1, UnityEngine.Random.Range(-10, 10));
+        var position = new Vector3(UnityEngine.Random.Range(-5, 10), 0, 0);
         var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
 
         spawnCharacter = _runner.Spawn(

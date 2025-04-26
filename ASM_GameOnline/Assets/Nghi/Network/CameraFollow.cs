@@ -1,33 +1,24 @@
-﻿using Unity.Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public CinemachineCamera virtualCamera;
+    [SerializeField] private Transform target; // Player để theo dõi
+    [SerializeField] private Vector3 offset = new Vector3(0f, 2f, -10f);
+    [SerializeField] private float smoothSpeed = 5f;
 
-    private void Awake()
+    private void LateUpdate()
     {
-        virtualCamera = FindObjectOfType<CinemachineCamera>();
-        if (virtualCamera == null)
-        {
-            Debug.LogError("Không tìm thấy CinemachineVirtualCamera trong Scene!");
-        }
+        if (target == null) return;
+
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothed = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = smoothed;
     }
 
-    public void AssignCamera(Transform playerTransform)
+    public void SetTarget(Transform newTarget)
     {
-        if (virtualCamera != null)
-        {
-            virtualCamera.Follow = playerTransform;
-            virtualCamera.LookAt = playerTransform;
-        }
+        target = newTarget;
     }
-    //public CinemachineVirtualCamera virtualCamera;
-    //public void AssignCamera(Transform playerTransform)
-    //{
-    //    virtualCamera.Follow = playerTransform;
-    //    virtualCamera.LookAt = playerTransform;
-    //}
+
+
 }

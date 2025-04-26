@@ -16,7 +16,7 @@
     //Setup HP, Score,...
     public override void Spawned()
     {
-        if (!Object.HasStateAuthority) return;
+        /*if (!Object.HasStateAuthority) return;
 
         // Tìm CameraFollow trong Scene
         var cameraFollow = FindObjectOfType<CameraFollow>();
@@ -27,6 +27,6 @@
         else
         {
             Debug.LogError("Không tìm thấy CameraFollow trong Scene!");
-        }
+        }*/
     }
 }

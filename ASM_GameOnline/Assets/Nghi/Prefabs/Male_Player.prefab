@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2144586177
   m_SortingLayer: 1
-  m_SortingOrder: 5
+  m_SortingOrder: 11
   m_Sprite: {fileID: 7760228059329691558, guid: e8e0df1c3e18b12498e75aed52091c41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -126,7 +126,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359407855223148748}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -175,7 +175,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -203,9 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4baebb361c11e4fabc4914b0f611e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CurrentHealth: 0
-  MaxHealth: 100
-  healthText: {fileID: 0}
+  _Health: 0
+  maxHealth: 100
   animator: {fileID: 0}
 --- !u!114 &4799427396538002268
 MonoBehaviour:
@@ -244,7 +243,7 @@ MonoBehaviour:
   SyncScale: 0
   SyncParent: 0
   _autoAOIOverride: 1
-  DisableSharedModeInterpolation: 0
+  DisableSharedModeInterpolation: 1
 --- !u!114 &-748854006934091366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +263,12 @@ MonoBehaviour:
   rb: {fileID: 1420646283995748214}
   firePoint: {fileID: 1320008264093315888}
   bulletPrefab: {fileID: 6818993797482467374, guid: ac9e7bfc8302e8740a9ead58a3b85c9a, type: 3}
+  damage: 20
+  attackRange: 1.5
+  attackPoint: {fileID: 0}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4949788404991453387
 GameObject:
   m_ObjectHideFlags: 0
