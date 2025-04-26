@@ -9,9 +9,21 @@ public class HealthSystem : NetworkBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private Animator animator;
 
-    private void Start()
+    private PlayerProperties playerProperties;
+
+    private void Awake()
     {
-        Health = maxHealth;
+        playerProperties = GetComponent<PlayerProperties>();
+    }
+
+    public override void Spawned()
+    {
+        if (HasStateAuthority)
+        {
+            Health = maxHealth;
+            if (playerProperties != null)
+                playerProperties.currentHealth = Health;
+        }
     }
 
     public void TakeDamage(int dmg)
@@ -20,12 +32,29 @@ public class HealthSystem : NetworkBehaviour
 
         Health -= dmg;
         Health = Mathf.Max(Health, 0);
+
+        if (playerProperties != null)
+            playerProperties.currentHealth = Health;
+
         RPC_PlayHitAnim();
 
         if (Health <= 0)
         {
             Die();
         }
+    }
+
+    public void Heal(int amount)
+    {
+        if (!HasStateAuthority) return;
+
+        Health += amount;
+        Health = Mathf.Min(Health, maxHealth);
+
+        if (playerProperties != null)
+            playerProperties.currentHealth = Health;
+
+        Debug.Log($"[Player] Healed +{amount}, current HP: {Health}");
     }
 
     private void Die()
@@ -38,18 +67,195 @@ public class HealthSystem : NetworkBehaviour
     private void RPC_PlayHitAnim()
     {
         if (animator != null)
-            Debug.Log("Player hurt!");
             animator.SetTrigger("isHurt");
     }
+    //!!!!!!!!!!!!!!!!!
+    //[Networked] public int Health { get; set; }
+    //[SerializeField] private int maxHealth = 100;
+    //[SerializeField] private Animator animator;
 
-    public void Heal(int amount)
-    {
-        if (!HasStateAuthority) return;
+    //private PlayerProperties playerProperties;
 
-        Health += amount;
-        Debug.Log("Healed! Current HP: " + Health);
-    }
+    //private void Awake()
+    //{
+    //    playerProperties = GetComponent<PlayerProperties>();
+    //}
 
+    //private void Start()
+    //{
+    //    if (HasStateAuthority)
+    //    {
+    //        Health = maxHealth;
+
+    //        if (playerProperties != null)
+    //        {
+    //            playerProperties.currentHealth = Health;
+    //        }
+    //    }
+    //}
+
+    //public void TakeDamage(int dmg)
+    //{
+    //    if (!HasStateAuthority) return;
+
+    //    Health -= dmg;
+    //    Health = Mathf.Max(Health, 0);
+
+    //    if (playerProperties != null)
+    //        playerProperties.currentHealth = Health;
+
+    //    RPC_PlayHitAnim();
+
+    //    if (Health <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
+
+    //public void Heal(int amount)
+    //{
+    //    if (!HasStateAuthority) return;
+
+    //    Health = Mathf.Min(Health + amount, maxHealth);
+
+    //    if (playerProperties != null)
+    //        playerProperties.currentHealth = Health;
+
+    //    Debug.Log($"[Player] Healed +{amount}, current HP: {Health}");
+    //}
+
+    //private void Die()
+    //{
+    //    Debug.Log("Player Dead");
+    //    // TODO: Respawn hoặc GameOver
+    //}
+
+    //[Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    //private void RPC_PlayHitAnim()
+    //{
+    //    if (animator != null)
+    //        animator.SetTrigger("isHurt");
+    //}
+    //&&&&&&&&&&&&&&&&&&&&&&&&
+    //[Networked] public int Health { get; set; }
+    //[SerializeField] private int maxHealth = 100;
+    //[SerializeField] private Animator animator;
+    //[SerializeField] private TMP_Text healthText; // Thêm Text UI
+
+    //private int previousHealth = -1; // Dùng để kiểm tra thay đổi
+
+    //private void Start()
+    //{
+    //    if (HasInputAuthority) // Chỉ player mình tự update UI của mình
+    //    {
+    //        UpdateHealthUI();
+    //    }
+    //}
+
+    //private void Update()
+    //{
+    //    // Chỉ người chơi chính mới tự update UI của mình
+    //    if (!HasInputAuthority) return;
+
+    //    // Khi Health thay đổi, cập nhật UI
+    //    if (Health != previousHealth)
+    //    {
+    //        UpdateHealthUI();
+    //        previousHealth = Health;
+    //    }
+    //}
+
+    //public void TakeDamage(int dmg)
+    //{
+    //    if (!HasStateAuthority) return;
+
+    //    Health -= dmg;
+    //    Health = Mathf.Max(Health, 0);
+    //    RPC_PlayHitAnim();
+
+    //    if (Health <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
+
+    //private void Die()
+    //{
+    //    Debug.Log("Player Dead");
+    //    // TODO: Respawn hoặc GameOver
+    //}
+
+    //[Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    //private void RPC_PlayHitAnim()
+    //{
+    //    if (animator != null)
+    //    {
+    //        Debug.Log("Player hurt!");
+    //        animator.SetTrigger("isHurt");
+    //    }
+    //}
+
+    //public void Heal(int amount)
+    //{
+    //    if (!HasStateAuthority) return;
+
+    //    Health = Mathf.Min(Health + amount, maxHealth);
+    //    Debug.Log($"[Player] Healed +{amount}, current HP: {Health}");
+    //}
+
+    //private void UpdateHealthUI()
+    //{
+    //    if (healthText != null)
+    //    {
+    //        healthText.text = $"HP: {Health}/{maxHealth}";
+    //    }
+    //}
+    //!!!!!!!!!
+    //[Networked] public int Health { get; set; }
+    //[SerializeField] private int maxHealth = 100;
+    //[SerializeField] private Animator animator;
+
+    //private void Start()
+    //{
+    //    Health = maxHealth;
+    //}
+
+    //public void TakeDamage(int dmg)
+    //{
+    //    if (!HasStateAuthority) return;
+
+    //    Health -= dmg;
+    //    Health = Mathf.Max(Health, 0);
+    //    RPC_PlayHitAnim();
+
+    //    if (Health <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
+
+    //private void Die()
+    //{
+    //    Debug.Log("Player Dead");
+    //    // TODO: Respawn hoặc GameOver
+    //}
+
+    //[Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    //private void RPC_PlayHitAnim()
+    //{
+    //    if (animator != null)
+    //        Debug.Log("Player hurt!");
+    //        animator.SetTrigger("isHurt");
+    //}
+
+    //public void Heal(int amount)
+    //{
+    //    if (!HasStateAuthority) return;
+
+    //    Health = Mathf.Min(Health + amount, maxHealth);
+    //    Debug.Log($"[Player] Healed +{amount}, current HP: {Health}");
+    //}
+    //***************
     //[Networked] public int CurrentHealth { get; set; }
     //public int MaxHealth = 100;
 

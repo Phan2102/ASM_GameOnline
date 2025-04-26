@@ -112,12 +112,12 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
 
         var characterPrefab = characterPrefabRefs[UnityEngine.Random.Range(0, characterPrefabRefs.Length)];
         var position = new Vector3(UnityEngine.Random.Range(-10, 10), 1, UnityEngine.Random.Range(-10, 10));
-        var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+        //var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
 
         spawnCharacter = _runner.Spawn(
             characterPrefab,
             position,
-            rotation,
+            Quaternion.identity,
             null,
             (r, o) =>
             {
@@ -125,7 +125,7 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
             }
             );
 
-        Invoke(nameof(DespawnCharacter), 5f);
+        Invoke(nameof(DespawnCharacter), 30f);
     }
 
     public void DespawnCharacter()

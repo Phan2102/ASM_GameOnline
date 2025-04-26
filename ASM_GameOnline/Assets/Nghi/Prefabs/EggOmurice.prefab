@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1558536425146186266}
   - component: {fileID: -5267737163230436015}
   - component: {fileID: 7554396240737278220}
+  - component: {fileID: 7897718914525676565}
+  - component: {fileID: 2882831137807612389}
   m_Layer: 8
   m_Name: EggOmurice
   m_TagString: Item
@@ -136,6 +138,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 7554396240737278220}
+  - {fileID: 2882831137807612389}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &7554396240737278220
 MonoBehaviour:
@@ -154,6 +157,65 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!61 &7897718914525676565
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221008407528291589}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.1611819, y: 0.48}
+    newSize: {x: 1.1611819, y: 0.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.1611819, y: 0.48}
+  m_EdgeRadius: 0
+--- !u!114 &2882831137807612389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221008407528291589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085a09498682fb24cbadf0a198b3d44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 20
 --- !u!1 &7335830427144808316
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 401045493263356699}
-  - component: {fileID: 3205219110331996849}
+  - component: {fileID: 1728340961192493474}
   m_Layer: 8
   m_Name: Trigger
   m_TagString: Untagged
@@ -186,8 +248,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2801424331590729652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3205219110331996849
-BoxCollider2D:
+--- !u!58 &1728340961192493474
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -220,15 +282,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0056631267, y: 0.0018868744}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.1321378, y: 0.42992014}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.6

@@ -24,10 +24,22 @@ public class ChatSystem : NetworkBehaviour
         chatPanelGroup = GameObject.Find("Chat Panel")?.GetComponent<CanvasGroup>();
 
         if (sendButton != null) sendButton.onClick.AddListener(SendMessageChat);
-        if (openChatButton != null) openChatButton.onClick.AddListener(ShowChatPanel);
+        //if (openChatButton != null) openChatButton.onClick.AddListener(ShowChatPanel);
         if (closeChatButton != null) closeChatButton.onClick.AddListener(HideChatPanel);
 
+        if (openChatButton != null)
+            openChatButton.onClick.AddListener(ToggleChatPanel);
+
         HideChatPanel(); // Ẩn chat ngay từ đầu
+    }
+
+    void Update()
+    {
+        if (chatPanelGroup != null && chatPanelGroup.alpha > 0.9f)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+                SendMessageChat();
+        }
     }
 
     private void ShowChatPanel()
@@ -44,6 +56,31 @@ public class ChatSystem : NetworkBehaviour
         chatPanelGroup.alpha = 0;
         chatPanelGroup.blocksRaycasts = false;
         chatPanelGroup.interactable = false;
+    }
+
+    private void ToggleChatPanel()
+    {
+        if (chatPanelGroup == null) return;
+
+        bool isVisible = chatPanelGroup.alpha > 0.9f;
+
+        if (isVisible)
+        {
+            // Nếu đang hiện → ẩn
+            chatPanelGroup.alpha = 0;
+            chatPanelGroup.blocksRaycasts = false;
+            chatPanelGroup.interactable = false;
+        }
+        else
+        {
+            // Nếu đang ẩn → hiện
+            chatPanelGroup.alpha = 1;
+            chatPanelGroup.blocksRaycasts = true;
+            chatPanelGroup.interactable = true;
+
+            // Focus vào input field khi mở panel (cho tiện)
+            inputFieldMessage?.ActivateInputField();
+        }
     }
 
     public void SendMessageChat()
