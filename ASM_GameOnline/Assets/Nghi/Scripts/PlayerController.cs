@@ -49,6 +49,7 @@ public class PlayerController : NetworkBehaviour
     public Transform attackPoint;
     public LayerMask hitMask;
 
+    private bool isTyping => ChatController.Instance != null && ChatController.Instance.isTyping;
 
     public void Attack()
     {
@@ -65,47 +66,28 @@ public class PlayerController : NetworkBehaviour
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void RPC_DoAttack()
     {
-        Debug.Log("Gọi RPC_DoAttack");
+        //Debug.Log("Gọi RPC_DoAttack");
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitMask);
-        Debug.Log("Tìm thấy " + hits.Length + " đối tượng");
+        //Debug.Log("Tìm thấy " + hits.Length + " đối tượng");
         foreach (var hit in hits)
         {
             Debug.Log("Chạm: " + hit.name);
             HitBox box = hit.GetComponent<HitBox>();
             if (box != null && box.type == HitBox.HitBoxType.Enemy)
             {
-                int dmg = Random.Range(5, 20);
+                int dmg = Random.Range(10, 20);
                 var health = box.owner.GetComponent<HealthSystem_Enemy>();
                 if (health != null)
                 {
                     health.RPC_TakeDamage(dmg);
-                    Debug.Log($"[SERVER] Player {Runner.LocalPlayer.PlayerId} đang đánh Enemy, gây {dmg} sát thương.");
+                    //Debug.Log($"[SERVER] Player {Runner.LocalPlayer.PlayerId} đang đánh Enemy, gây {dmg} sát thương.");
                     Debug.DrawRay(attackPoint.position, Vector2.right * attackRange, Color.red, 1f);
                 }
-                //health?.TakeDamage(dmg);
-                //health.TakeDamage(20, Runner.LocalPlayer.ToString());
-                
+              
             }
 
-            //HitBox hitBox = hit.GetComponent<HitBox>();
-
-            //// Nếu không phải hitbox hợp lệ => bỏ qua
-            //if (hitBox == null || hitBox.type != HitBox.HitBoxType.Enemy) return;
-
-            //// Lấy NetworkObject sở hữu HitBox đó
-            //NetworkObject enemyObj = hitBox.owner;
-            //if (enemyObj == null) return;
-
-            //// Chỉ server xử lý giảm máu
-            //if (!Runner.IsServer) return;
-
-            //// Gọi TakeDamage nếu có component HealthSystem_Enemy
-            //HealthSystem_Enemy health = enemyObj.GetComponent<HealthSystem_Enemy>();
-            //if (health != null)
-            //{
-            //    health.TakeDamage(damage);
-        //}
+          
         }
     }
 
@@ -141,9 +123,13 @@ public class PlayerController : NetworkBehaviour
         float speed = isShiftPressed ? runSpeed : walkSpeed;
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
 
+
         // Trạng thái di chuyển ngang
-        IsWalking = moveInput != 0 && !isShiftPressed;
-        IsRunning = moveInput != 0 && isShiftPressed;
+        if (!isTyping)
+        {
+            IsWalking = moveInput != 0 && !isShiftPressed;
+            IsRunning = moveInput != 0 && isShiftPressed;
+        }
 
         if (isJumpPressed && isGrounded)
         {
@@ -163,8 +149,14 @@ public class PlayerController : NetworkBehaviour
         }
 
         // Flip
-        if (moveInput > 0 && !facingRight) FlipCharacter(true);
-        else if (moveInput < 0 && facingRight) FlipCharacter(false);
+        /*if (moveInput > 0 && !facingRight) FlipCharacter(true);
+        else if (moveInput < 0 && facingRight) FlipCharacter(false);*/
+        if (!isTyping)
+        {
+            if (moveInput > 0 && !facingRight) FlipCharacter(true);
+            else if (moveInput < 0 && facingRight) FlipCharacter(false);
+        }
+
 
         NetworkedPosition = transform.position;
         IsFacingRight = facingRight;

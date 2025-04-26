@@ -415,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 3
   followDistance: 2
-  minFollowDistance: 1
+  minFollowDistance: 0.5
   maxFollowRange: 6
   maxHP: 100
   hpFillImage: {fileID: 5020565498132698535}

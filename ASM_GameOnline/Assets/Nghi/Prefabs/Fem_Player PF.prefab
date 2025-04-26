@@ -352,6 +352,8 @@ GameObject:
   - component: {fileID: 710532778869012480}
   - component: {fileID: 4581206693148199677}
   - component: {fileID: 6806249805867828151}
+  - component: {fileID: 5853490762317830566}
+  - component: {fileID: 1748745666098098906}
   m_Layer: 6
   m_Name: Female_Player
   m_TagString: Player
@@ -368,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 4009827451307112509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.235, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -605,6 +607,46 @@ MonoBehaviour:
   networkObject: {fileID: 0}
   Name: 
   _NetworkedName: 
+--- !u!114 &5853490762317830566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009827451307112509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3795257073
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 6695531596891840799}
+  - {fileID: 710532778869012480}
+  - {fileID: 4581206693148199677}
+  - {fileID: 6806249805867828151}
+  - {fileID: 1748745666098098906}
+  ForceRemoteRenderTimeframe: 0
+--- !u!114 &1748745666098098906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009827451307112509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 1
 --- !u!1 &6626794405225044187
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +657,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8222849373632118786}
   - component: {fileID: 5410814450722993247}
-  - component: {fileID: 2300821585296174300}
+  - component: {fileID: 1359076870701818787}
+  - component: {fileID: 819643762330907722}
   m_Layer: 0
   m_Name: Fem_Player PF
   m_TagString: Untagged
@@ -646,7 +689,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6626794405225044187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
@@ -654,31 +697,63 @@ MonoBehaviour:
   SortKey: 84150633
   ObjectInterest: 1
   Flags: 262145
-  NestedObjects: []
+  NestedObjects:
+  - {fileID: 5853490762317830566}
   NetworkedBehaviours:
-  - {fileID: 2300821585296174300}
-  - {fileID: 6695531596891840799}
-  - {fileID: 710532778869012480}
-  - {fileID: 4581206693148199677}
-  - {fileID: 6806249805867828151}
+  - {fileID: 1359076870701818787}
+  - {fileID: 819643762330907722}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &2300821585296174300
+--- !u!114 &1359076870701818787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6626794405225044187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Script: {fileID: 11500000, guid: ea54f95f89c6d064aaf13948912e1b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stateAuthorityChangeErrorCorrectionDelta: 0
-  SyncScale: 0
-  SyncParent: 0
-  _autoAOIOverride: 1
-  DisableSharedModeInterpolation: 1
+  walkSpeed: 5
+  runSpeed: 8
+  jumpForce: 8
+  animator: {fileID: 2733960944427147369}
+  rb: {fileID: 8663282321181277354}
+  firePoint: {fileID: 962012846579724702}
+  bulletPrefab: {fileID: 6818993797482467374, guid: ac9e7bfc8302e8740a9ead58a3b85c9a, type: 3}
+  spriteRenderer: {fileID: 3428443936305485447}
+  damage: 20
+  attackRange: 1.49
+  attackPoint: {fileID: 2222390279062061993}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &819643762330907722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626794405225044187}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142f2bbf27db697498c03ea6b1c0e0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _NetworkedPosition: {x: 0, y: 0, z: 0}
+  _NetworkedAnimation: 0
+  _IsDead:
+    _value: 0
+  _IsRevived:
+    _value: 0
+  nameText: {fileID: 8726095414340184109}
+  healthBarFill: {fileID: 9189468689179998838}
+  networkRunner: {fileID: 0}
+  networkObject: {fileID: 0}
+  Name: 
+  _NetworkedName: 
 --- !u!1 &7975582465137973824
 GameObject:
   m_ObjectHideFlags: 0

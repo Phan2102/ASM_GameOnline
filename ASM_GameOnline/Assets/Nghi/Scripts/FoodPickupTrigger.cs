@@ -13,6 +13,9 @@ public class FoodPickupTrigger : MonoBehaviour
             var health = other.GetComponent<PlayerProperties>();
             if (health != null)
             {
+                if (health.currentHealth == 100)
+                    return;
+
                 health.Heal(healAmount);
                 Destroy(gameObject); // Item biến mất sau khi dùng
             }

@@ -10,6 +10,8 @@ public class PlayerProperties : NetworkBehaviour
     public float currentHealth { get; set; }
     public float maxHealth { get; set; } = 100;
 
+    [SerializeField] private Animator anim;
+
     [Networked, OnChangedRender(nameof(SyncPosition))]
     public Vector3 NetworkedPosition { get; set; }
     [Networked, OnChangedRender(nameof(SyncAnimation))]
@@ -60,10 +62,6 @@ public class PlayerProperties : NetworkBehaviour
             transform.position = Vector3.Lerp(transform.position, NetworkedPosition, Runner.DeltaTime * 10f);
         }
 
-        if (Input.GetKey(KeyCode.K))
-        {
-            TakeDamage(10);
-        }
     }
 
     private void SyncPosition()
@@ -101,6 +99,7 @@ public class PlayerProperties : NetworkBehaviour
             {
                 camFollow.SetTarget(transform); // Gán camera follow Player
             }
+
         }
 
     }
@@ -166,7 +165,7 @@ public class PlayerProperties : NetworkBehaviour
     {
         if (other.CompareTag("Enemy") && HasStateAuthority)
         {
-            TakeDamage(5);
+            TakeDamage(3);
         }
 
     }
@@ -203,7 +202,6 @@ public class PlayerProperties : NetworkBehaviour
     {
         if (IsDead)
         {
-            var anim = GetComponent<Animator>();
             if (anim != null)
             {
                 anim.SetTrigger("isHurt");
@@ -218,7 +216,6 @@ public class PlayerProperties : NetworkBehaviour
     {
         if (IsRevived)
         {
-            var anim = GetComponent<Animator>();
             if (anim != null)
             {
                 anim.SetTrigger("isRevive");

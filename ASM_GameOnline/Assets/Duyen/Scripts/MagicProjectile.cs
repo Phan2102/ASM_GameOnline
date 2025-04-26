@@ -27,8 +27,9 @@ public class MagicProjectile : NetworkBehaviour
 
         if (Vector3.Distance(transform.position, target.position) < 0.3f)
         {
+            Debug.Log("NPC Hit enemy!");
             // Gây damage cho enemy ở đây
-            //target.GetComponent<Enemy>()?.TakeDamage(damage);
+            target.GetComponent<HealthSystem_Enemy>()?.TakeDamage(10);
             Runner.Despawn(Object);
         }
     }
