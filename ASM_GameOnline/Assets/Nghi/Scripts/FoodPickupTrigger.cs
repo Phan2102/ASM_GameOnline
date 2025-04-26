@@ -3,22 +3,19 @@ using UnityEngine;
 
 public class FoodPickupTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float healAmount = 25f; // lượng máu hồi
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        NetworkObject netObj = GetComponentInParent<NetworkObject>();
-        if (netObj == null) return;
-
-        if (!netObj.HasStateAuthority) return;
-
-        if (collision.CompareTag("Player"))
+        // Kiểm tra va chạm với Player
+        if (other.CompareTag("Player"))
         {
-            if (collision.TryGetComponent(out HealthSystem health))
+            var health = other.GetComponent<PlayerProperties>();
+            if (health != null)
             {
-                health.Heal(20); // Hồi máu
+                health.Heal(healAmount);
+                Destroy(gameObject); // Item biến mất sau khi dùng
             }
-
-            // Gọi xoá object qua server
-            netObj.GetComponent<FoodItemController>()?.PickedUp();
         }
     }
 }

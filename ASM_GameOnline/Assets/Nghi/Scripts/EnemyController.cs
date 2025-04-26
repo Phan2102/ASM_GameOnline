@@ -253,7 +253,7 @@ public class EnemyController : NetworkBehaviour
     private Coroutine attackRoutine;
     private bool isAttacking = false;
 
-    public int damage = 10;
+    public int damage = 5;
 
     private enum State { Patrol, Chase, Attack }
     private State currentState = State.Patrol;

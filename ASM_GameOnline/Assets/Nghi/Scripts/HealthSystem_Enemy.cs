@@ -1,13 +1,16 @@
 ﻿using Fusion;
-using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class HealthSystem_Enemy : NetworkBehaviour
 {
     [Networked] public int Health { get; private set; }
     [SerializeField] private int maxHealth = 100;
-    private TextMeshPro healthText;
+
+    [Header("UI")]
+    [SerializeField] private Image healthBarFill; 
+
     [SerializeField] private Animator animator;
     private bool isDead = false;
 
@@ -16,9 +19,7 @@ public class HealthSystem_Enemy : NetworkBehaviour
         if (HasStateAuthority)
             Health = maxHealth;
 
-        SetupHealthText();
         UpdateHealthUI();
-
     }
 
     public void TakeDamage(int dmg)
@@ -41,30 +42,10 @@ public class HealthSystem_Enemy : NetworkBehaviour
         Runner.Despawn(Object);
     }
 
-    private void SetupHealthText()
-    {
-        Transform healthTextTransform = transform.Find("Health Text");
-        if (healthTextTransform != null)
-        {
-            healthText = healthTextTransform.GetComponent<TextMeshPro>();
-            healthText.transform.localPosition = new Vector3(-0.3f, 0.5f, 0);
-        }
-        else
-        {
-            GameObject textObject = new GameObject("Health Text");
-            textObject.transform.SetParent(transform);
-            textObject.transform.localPosition = new Vector3(-0.3f, 0.5f, 0);
-            healthText = textObject.AddComponent<TextMeshPro>();
-            healthText.fontSize = 3;
-            healthText.alignment = TextAlignmentOptions.Center;
-            healthText.color = Color.white;
-        }
-    }
-
     private void UpdateHealthUI()
     {
-        if (healthText == null) return;
-        healthText.text = $"{Health}/{maxHealth}";
+        if (healthBarFill == null) return;
+        healthBarFill.fillAmount = (float)Health / maxHealth;
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -82,12 +63,8 @@ public class HealthSystem_Enemy : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-        if (healthText != null)
-            healthText.text = $"{Health}/{maxHealth}";
-
-        UpdateHealthUI(); // ← GỌI CẬP NHẬT CHUẨN MỖI FRAME
+        UpdateHealthUI();
     }
-
 
 
     //[Networked] public int Health { get; private set; }

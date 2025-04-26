@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Point A
   - Point B
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Player
   - Enemy
   - Item
-  - 
+  - NPC
   - 
   - 
   - 

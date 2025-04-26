@@ -8,10 +8,12 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
 {
     public NetworkRunner _runner;
     public NetworkSceneManagerDefault _sceneManager;
-
+    [Header("Player")]
     public NetworkPrefabRef _malePlayerPrefabs;
     public NetworkPrefabRef _femalePlayerPrefab;
 
+    public NetworkPrefabRef npcPrefab;
+    public float npcSpawnOffset = 1.5f;
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     private NetworkObject spawnedEnemy;
     [SerializeField] private NetworkPrefabRef[] enemyPrefabs;
@@ -33,7 +35,7 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
         }
 
         var enemyPrefab = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
-        var spawnPos = new Vector3(UnityEngine.Random.Range(-6, 6), -2, 0);
+        var spawnPos = new Vector3(UnityEngine.Random.Range(-6, 6), 0, 0);
         
         spawnedEnemy = _runner.Spawn(
             enemyPrefab,
@@ -114,7 +116,7 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
 
         var characterPrefab = characterPrefabRefs[UnityEngine.Random.Range(0, characterPrefabRefs.Length)];
         var position = new Vector3(UnityEngine.Random.Range(-5, 10), 0, 0);
-        var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+        var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 0), 0);
 
         spawnCharacter = _runner.Spawn(
             characterPrefab,
@@ -123,11 +125,11 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
             null,
             (r, o) =>
             {
-                Debug.Log("Character Spawned: " + o);
+                Debug.Log("item Spawned: " + o);
             }
             );
 
-        Invoke(nameof(DespawnCharacter), 5f);
+        Invoke(nameof(DespawnCharacter), 25f);
     }
 
     public void DespawnCharacter()
@@ -194,31 +196,38 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
     {
         Debug.Log("...Player joined: " + player);
         if (_runner.LocalPlayer != player) return;
+
         //Xử lý Spawn nhân vật
         Debug.Log("OnPlayerJoined: " + player.PlayerId);
+
         //Lấy thông tin người chơi từ PlayerPrefs
         string playerName = PlayerPrefs.GetString("PlayerName");
         string playerClass = PlayerPrefs.GetString("PlayerClass");
+
         //Tạo người chơi
         var prefab = playerClass.Equals("Male") ? _malePlayerPrefabs : _femalePlayerPrefab;
+
+        Vector3 randomSpawnPosition = new Vector3(
+        UnityEngine.Random.Range(-4f, 10f), -1f, 0);  
+
         //Spawn nguoi choi
         var playerObj = runner.Spawn(
             prefab,
-            Vector3.zero,
+            randomSpawnPosition,
             Quaternion.identity,
             player,
             (r, o) =>
             {
                 Debug.Log("Player spawned: " + o.Id);
 
-                //KHỞI TẠO NETWORK TRONG GUN
-                
             });
 
-
-
-
-
+        var npcPos = new Vector3(randomSpawnPosition.x + npcSpawnOffset, randomSpawnPosition.y, randomSpawnPosition.z);
+        var npc = runner.Spawn(npcPrefab, npcPos, Quaternion.identity, player, (runner, o) =>
+        {
+            // Thiết lập player mà NPC sẽ theo
+            o.GetComponent<NPC>().SetTarget(playerObj.transform);
+        });
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)

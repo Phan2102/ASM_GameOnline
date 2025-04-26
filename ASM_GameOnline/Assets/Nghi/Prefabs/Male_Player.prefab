@@ -198,7 +198,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359407855223148748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4baebb361c11e4fabc4914b0f611e8, type: 3}
   m_Name: 
@@ -263,12 +263,13 @@ MonoBehaviour:
   rb: {fileID: 1420646283995748214}
   firePoint: {fileID: 1320008264093315888}
   bulletPrefab: {fileID: 6818993797482467374, guid: ac9e7bfc8302e8740a9ead58a3b85c9a, type: 3}
+  spriteRenderer: {fileID: 0}
   damage: 20
   attackRange: 1.5
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 1320008264093315888}
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &4949788404991453387
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781015892505149316}
   - component: {fileID: 1287054427424025050}
+  - component: {fileID: 4224848614347069868}
   m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
@@ -378,3 +380,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6341325, y: 0.96308756}
   m_EdgeRadius: 0
+--- !u!114 &4224848614347069868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953758924809166082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0df085202752e741b7dde977201e98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  owner: {fileID: 4799427396538002268}

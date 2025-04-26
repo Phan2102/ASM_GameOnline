@@ -151,12 +151,24 @@ public class PlayerProperties : NetworkBehaviour
 
     }
 
+    public void Heal(float amount)
+    {
+        if (!HasStateAuthority || currentHealth == 100 || currentHealth <= 0) return;
+
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth); // không vượt quá max
+
+        Debug.Log("Player hồi máu: " + amount);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") && HasStateAuthority)
         {
-            TakeDamage(10);
+            TakeDamage(5);
         }
+
     }
 
     public void TakeDamage(float damage)
@@ -214,6 +226,7 @@ public class PlayerProperties : NetworkBehaviour
 
             // Bật lại điều khiển
             GetComponent<PlayerController>().enabled = true;
+
         }
     }
     IEnumerator ReviveAfterDelay(float delay)
