@@ -39,9 +39,25 @@ public class HealthSystem_Enemy : NetworkBehaviour
     {
         isDead = true;
         animator?.SetTrigger("isDead");
+
+        if (Object.HasStateAuthority)
+        {
+            var player = GetPlayerWhoKilledThis();
+            if (player != null)
+            {
+                player.RPC_IncreaseKillCount();
+            }
+        }
+
         Runner.Despawn(Object);
     }
 
+    private PlayerProperties GetPlayerWhoKilledThis()
+    {
+        // Giả sử ta có thể lấy thông tin Player đã bắn/kết liễu enemy này từ các thuộc tính của enemy
+        // Bạn cần phải tuỳ chỉnh để xác định Player chính xác
+        return FindObjectOfType<PlayerProperties>(); // Giả sử PlayerProperties là nơi quản lý thông tin người chơi
+    }
     private void UpdateHealthUI()
     {
         if (healthBarFill == null) return;

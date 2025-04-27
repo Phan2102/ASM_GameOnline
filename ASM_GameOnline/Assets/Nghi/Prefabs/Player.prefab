@@ -526,7 +526,7 @@ MonoBehaviour:
   SyncScale: 0
   SyncParent: 0
   _autoAOIOverride: 1
-  DisableSharedModeInterpolation: 1
+  DisableSharedModeInterpolation: 0
 --- !u!114 &8589739987779012884
 MonoBehaviour:
   m_ObjectHideFlags: 0

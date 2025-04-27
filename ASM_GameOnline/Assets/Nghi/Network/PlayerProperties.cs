@@ -25,6 +25,7 @@ public class PlayerProperties : NetworkBehaviour
 
 
     [SerializeField] private TextMeshProUGUI nameText; 
+    [SerializeField] private TextMeshProUGUI KillText; 
 
     [Header("UI")]
     [SerializeField] private Image healthBarFill;
@@ -40,6 +41,7 @@ public class PlayerProperties : NetworkBehaviour
     public string NetworkedName { get; set; }
 
     private Vector3 deathPosition;
+    [Networked] public int killCount { get; set; } // Số kill của người chơi
 
     private void Start()
     {
@@ -99,10 +101,41 @@ public class PlayerProperties : NetworkBehaviour
             {
                 camFollow.SetTarget(transform); // Gán camera follow Player
             }
-
+            // Thêm player vào bảng xếp hạng
+            var rankingManager = FindObjectOfType<RankingManager>();
+            if (rankingManager != null)
+            {
+                rankingManager.AddPlayer(this);
+            }
         }
 
     }
+
+    // RPC để tăng số kill
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_IncreaseKillCount()
+    {
+        if (HasStateAuthority)
+        {
+            killCount++;  // Tăng số kill
+            UpdateKillUI();
+        }
+
+        // Cập nhật bảng xếp hạng
+        var rankingManager = FindObjectOfType<RankingManager>();
+        if (rankingManager != null)
+        {
+            rankingManager.OnKillCountChanged();
+        }
+    }
+    private void UpdateKillUI()
+    {
+        if (KillText != null)
+        {
+            KillText.text = $"Kills: {killCount}";
+        }
+    }
+
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     public void RPC_SetName(string newName)
@@ -204,7 +237,7 @@ public class PlayerProperties : NetworkBehaviour
         {
             if (anim != null)
             {
-                anim.SetTrigger("isHurt");
+                anim.SetTrigger("isDie");
             }
 
             // Vô hiệu hóa input, movement,...

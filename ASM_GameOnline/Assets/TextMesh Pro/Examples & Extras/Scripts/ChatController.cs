@@ -145,7 +145,7 @@ public class ChatController : NetworkBehaviour
     private void Start()
     {
         if (chatPanel != null)
-            chatPanel.SetActive(isPanelVisible);
+            chatPanel.SetActive(false);
 
         if (chatInputField != null)
             chatInputField.gameObject.SetActive(false);
