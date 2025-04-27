@@ -48,57 +48,87 @@ public class PlayerController : NetworkBehaviour
     public Transform attackPoint;
     public LayerMask hitMask;
 
-
     public void Attack()
     {
         if (!HasInputAuthority) return;
 
-        // Gửi RPC lên server để xử lý
-        RPC_DoAttack();
+        RPC_RequestAttack(transform.position, facingRight ? 1 : -1); // gửi luôn facing
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    private void RPC_DoAttack()
+    private void RPC_RequestAttack(Vector2 playerPos, int facing)
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitMask);
+        Vector2 attackDirection = facing > 0 ? Vector2.right : Vector2.left;
+        Vector2 attackCenter = playerPos + attackDirection * attackRange * 0.5f;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackCenter, attackRange, hitMask);
+
         foreach (var hit in hits)
         {
             HitBox box = hit.GetComponent<HitBox>();
             if (box != null && box.type == HitBox.HitBoxType.Enemy)
             {
-                int dmg = Random.Range(5, 20);
                 var health = box.owner.GetComponent<HealthSystem_Enemy>();
                 if (health != null)
                 {
-                    health.RPC_TakeDamage(dmg);
-                    Debug.Log($"[SERVER] Player {Runner.LocalPlayer.PlayerId} đang đánh Enemy, gây {dmg} sát thương.");
-                    Debug.DrawRay(attackPoint.position, Vector2.right * attackRange, Color.red, 1f);
+                    int damage = Random.Range(5, 20);
+                    health.RPC_TakeDamage(damage);
+                    Debug.Log($"[SERVER] Player chém Enemy gây {damage} damage.");
                 }
-                //health?.TakeDamage(dmg);
-                //health.TakeDamage(20, Runner.LocalPlayer.ToString());
-                
             }
-
-            //HitBox hitBox = hit.GetComponent<HitBox>();
-
-            //// Nếu không phải hitbox hợp lệ => bỏ qua
-            //if (hitBox == null || hitBox.type != HitBox.HitBoxType.Enemy) return;
-
-            //// Lấy NetworkObject sở hữu HitBox đó
-            //NetworkObject enemyObj = hitBox.owner;
-            //if (enemyObj == null) return;
-
-            //// Chỉ server xử lý giảm máu
-            //if (!Runner.IsServer) return;
-
-            //// Gọi TakeDamage nếu có component HealthSystem_Enemy
-            //HealthSystem_Enemy health = enemyObj.GetComponent<HealthSystem_Enemy>();
-            //if (health != null)
-            //{
-            //    health.TakeDamage(damage);
-        //}
         }
     }
+
+    //public void Attack()
+    //{
+    //    if (!HasInputAuthority) return;
+
+    //    // Gửi RPC lên server để xử lý
+    //    RPC_DoAttack();
+    //}
+
+    //[Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    //private void RPC_DoAttack()
+    //{
+    //    Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitMask);
+    //    foreach (var hit in hits)
+    //    {
+    //        HitBox box = hit.GetComponent<HitBox>();
+    //        if (box != null && box.type == HitBox.HitBoxType.Enemy)
+    //        {
+    //            int dmg = Random.Range(5, 20);
+    //            var health = box.owner.GetComponent<HealthSystem_Enemy>();
+    //            if (health != null)
+    //            {
+    //                health.RequestTakeDamage(dmg);
+    //                Debug.Log($"[SERVER] Player {Runner.LocalPlayer.PlayerId} đang đánh Enemy, gây {dmg} sát thương.");
+    //                Debug.DrawRay(attackPoint.position, Vector2.right * attackRange, Color.red, 1f);
+    //            }
+    //            //health?.TakeDamage(dmg);
+    //            //health.TakeDamage(20, Runner.LocalPlayer.ToString());
+
+    //        }
+
+    //        //HitBox hitBox = hit.GetComponent<HitBox>();
+
+    //        //// Nếu không phải hitbox hợp lệ => bỏ qua
+    //        //if (hitBox == null || hitBox.type != HitBox.HitBoxType.Enemy) return;
+
+    //        //// Lấy NetworkObject sở hữu HitBox đó
+    //        //NetworkObject enemyObj = hitBox.owner;
+    //        //if (enemyObj == null) return;
+
+    //        //// Chỉ server xử lý giảm máu
+    //        //if (!Runner.IsServer) return;
+
+    //        //// Gọi TakeDamage nếu có component HealthSystem_Enemy
+    //        //HealthSystem_Enemy health = enemyObj.GetComponent<HealthSystem_Enemy>();
+    //        //if (health != null)
+    //        //{
+    //        //    health.TakeDamage(damage);
+    //    //}
+    //    }
+    //}
 
     private void OnDrawGizmosSelected()
     {

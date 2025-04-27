@@ -141,7 +141,8 @@ public class EnemyController : NetworkBehaviour
                 var health = box.owner.GetComponent<HealthSystem>();
                 health?.TakeDamage(damage);
                 //???????
-                hit.GetComponent<PlayerProperties>().TakeDamage(damage);
+                //hit.GetComponent<PlayerProperties>().TakeDamage(damage);
+                //hit.GetComponent<HealthSystem>().TakeDamage(damage);
             }
         }
 

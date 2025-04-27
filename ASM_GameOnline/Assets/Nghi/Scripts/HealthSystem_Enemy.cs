@@ -5,40 +5,22 @@ using UnityEngine;
 
 public class HealthSystem_Enemy : NetworkBehaviour
 {
-    [Networked] public int Health { get; private set; }
     [SerializeField] private int maxHealth = 100;
-    private TextMeshPro healthText;
+    [Networked] private int health { get; set; }
+
     [SerializeField] private Animator animator;
+    private TextMeshPro healthText;
     private bool isDead = false;
 
     public override void Spawned()
     {
         if (HasStateAuthority)
-            Health = maxHealth;
+        {
+            health = maxHealth;
+        }
 
         SetupHealthText();
         UpdateHealthUI();
-
-    }
-
-    public void TakeDamage(int dmg)
-    {
-        if (!HasStateAuthority || isDead) return;
-
-        Health -= dmg;
-        Health = Mathf.Clamp(Health, 0, maxHealth);
-        UpdateHealthUI();
-        RPC_PlayHitAnim();
-
-        if (Health <= 0)
-            Die();
-    }
-
-    private void Die()
-    {
-        isDead = true;
-        animator?.SetTrigger("isDead");
-        Runner.Despawn(Object);
     }
 
     private void SetupHealthText()
@@ -63,30 +45,139 @@ public class HealthSystem_Enemy : NetworkBehaviour
 
     private void UpdateHealthUI()
     {
-        if (healthText == null) return;
-        healthText.text = $"{Health}/{maxHealth}";
+        if (healthText != null)
+        {
+            healthText.text = $"{health}/{maxHealth}";
+        }
+    }
+
+    // 🧨 GỌI CÁI NÀY TỪ SERVER KHI MUỐN GÂY DAMAGE
+    [Rpc(RpcSources.StateAuthority, RpcTargets.StateAuthority)]
+    public void RPC_TakeDamage(int damage)
+    {
+        if (isDead) return;
+
+        health -= damage;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        Debug.Log($"[SERVER] Enemy nhận {damage} damage! Health còn lại: {health}/{maxHealth}");
+        UpdateHealthUI();
+        RPC_PlayHitAnimation();
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    private void RPC_PlayHitAnim()
+    private void RPC_PlayHitAnimation()
     {
-        if (animator != null)
+        if (animator != null && !isDead)
+        {
             animator.SetTrigger("isHurt");
+        }
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    public void RPC_TakeDamage(int dmg)
+    private void Die()
     {
-        TakeDamage(dmg);
+        isDead = true;
+
+        if (animator != null)
+        {
+            animator.SetTrigger("isDead");
+        }
+
+        // Nếu muốn kêu Runner.Despawn thì cho vào đây
+        // Runner.Despawn(Object);
     }
 
     public override void FixedUpdateNetwork()
     {
-        if (healthText != null)
-            healthText.text = $"{Health}/{maxHealth}";
-
-        UpdateHealthUI(); // ← GỌI CẬP NHẬT CHUẨN MỖI FRAME
+        UpdateHealthUI();
     }
+    //11111111111111111
+    //[Networked] public int Health { get; private set; }
+    //[SerializeField] private int maxHealth = 100;
+    //private TextMeshPro healthText;
+    //[SerializeField] private Animator animator;
+    //private bool isDead = false;
+
+    //public override void Spawned()
+    //{
+    //    if (HasStateAuthority)
+    //        Health = maxHealth;
+
+    //    SetupHealthText();
+    //    UpdateHealthUI();
+
+    //}
+
+    //public void TakeDamage(int dmg)
+    //{
+    //    if (!HasStateAuthority || isDead) return;
+
+    //    Health -= dmg;
+    //    Health = Mathf.Clamp(Health, 0, maxHealth);
+    //    UpdateHealthUI();
+    //    RPC_PlayHitAnim();
+
+    //    if (Health <= 0)
+    //        Die();
+    //}
+
+    //private void Die()
+    //{
+    //    isDead = true;
+    //    animator?.SetTrigger("isDead");
+    //    Runner.Despawn(Object);
+    //}
+
+    //private void SetupHealthText()
+    //{
+    //    Transform healthTextTransform = transform.Find("Health Text");
+    //    if (healthTextTransform != null)
+    //    {
+    //        healthText = healthTextTransform.GetComponent<TextMeshPro>();
+    //        healthText.transform.localPosition = new Vector3(-0.3f, 0.5f, 0);
+    //    }
+    //    else
+    //    {
+    //        GameObject textObject = new GameObject("Health Text");
+    //        textObject.transform.SetParent(transform);
+    //        textObject.transform.localPosition = new Vector3(-0.3f, 0.5f, 0);
+    //        healthText = textObject.AddComponent<TextMeshPro>();
+    //        healthText.fontSize = 3;
+    //        healthText.alignment = TextAlignmentOptions.Center;
+    //        healthText.color = Color.white;
+    //    }
+    //}
+
+    //private void UpdateHealthUI()
+    //{
+    //    if (healthText == null) return;
+    //    healthText.text = $"{Health}/{maxHealth}";
+    //}
+
+    //[Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    //private void RPC_PlayHitAnim()
+    //{
+    //    if (animator != null)
+    //        animator.SetTrigger("isHurt");
+    //}
+
+    //[Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    //public void RPC_TakeDamage(int dmg)
+    //{
+    //    TakeDamage(dmg);
+    //}
+
+    //public override void FixedUpdateNetwork()
+    //{
+    //    if (healthText != null)
+    //        healthText.text = $"{Health}/{maxHealth}";
+
+    //    UpdateHealthUI(); // ← GỌI CẬP NHẬT CHUẨN MỖI FRAME
+    //}
 
 
 

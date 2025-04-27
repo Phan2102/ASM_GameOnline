@@ -17,7 +17,7 @@ public class MainManager : NetworkBehaviour, INetworkRunnerCallbacks
     [SerializeField] private NetworkPrefabRef[] enemyPrefabs;
     public void SpawnEnemy()
     {
-        if (_runner == null || !_runner.IsRunning || !_runner.IsServer)
+        if (_runner == null || !_runner.IsRunning || _runner.IsServer)
         {
             Debug.LogWarning("Runner not ready yet, cannot spawn enemy.");
             Debug.Log($"_runner: {_runner}, IsRunning: {_runner?.IsRunning}, IsServer: {_runner?.IsServer}");

@@ -21,6 +21,7 @@ tpsheetFileNames:
 - Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_4/D-default.tpsheet
 - Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_5/D-default.tpsheet
 - Assets/Nghi/Character/Female_Slayer/Combo_4/Attack_6/D-default.tpsheet
+- Assets/Nghi/Character/Female_Slayer/Hurt/D.tpsheet
 - Assets/Nghi/Character/Female_Slayer/Idle/D-default.tpsheet
 - Assets/Nghi/Character/Female_Slayer/Jump/D-default.tpsheet
 - Assets/Nghi/Character/Female_Slayer/Running/D-default.tpsheet
@@ -63,6 +64,7 @@ textureFileNames:
 - Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_4/T-default.png
 - Assets/Nghi/Character/Female_Slayer/Combo_3/Attack_5/T-default.png
 - Assets/Nghi/Character/Female_Slayer/Combo_4/Attack_6/T-default.png
+- Assets/Nghi/Character/Female_Slayer/Hurt/T.png
 - Assets/Nghi/Character/Female_Slayer/Idle/T-default.png
 - Assets/Nghi/Character/Female_Slayer/Jump/T-default.png
 - Assets/Nghi/Character/Female_Slayer/Running/T-default.png
@@ -85,6 +87,7 @@ textureFileNames:
 - Assets/Nghi/Character/Male_Sword_Enemy/Walk/T-default.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
 - 
 - 

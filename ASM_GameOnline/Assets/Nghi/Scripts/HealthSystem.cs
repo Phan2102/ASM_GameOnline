@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class HealthSystem : NetworkBehaviour
 {
-    [Networked] public int Health { get; set; }
+    [Networked, OnChangedRender(nameof(OnHealthChanged))]
+    public int Health { get; set; }
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private Animator animator;
 
@@ -16,13 +17,24 @@ public class HealthSystem : NetworkBehaviour
         playerProperties = GetComponent<PlayerProperties>();
     }
 
+    private void Start()
+    {
+        if (HasStateAuthority)
+        {
+            Health = maxHealth;
+
+            if (playerProperties != null)
+            {
+                playerProperties.currentHealth = Health;
+            }
+        }
+    }
+
     public override void Spawned()
     {
         if (HasStateAuthority)
         {
             Health = maxHealth;
-            if (playerProperties != null)
-                playerProperties.currentHealth = Health;
         }
     }
 
@@ -30,8 +42,11 @@ public class HealthSystem : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
-        Health -= dmg;
-        Health = Mathf.Max(Health, 0);
+        //Health -= dmg;
+        //Health = Mathf.Max(Health, 0);
+
+        Health = Mathf.Max(Health - dmg, 0);
+        Debug.Log($"Máu còn lại: {Health}/{maxHealth}");
 
         if (playerProperties != null)
             playerProperties.currentHealth = Health;
@@ -48,8 +63,7 @@ public class HealthSystem : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
-        Health += amount;
-        Health = Mathf.Min(Health, maxHealth);
+        Health = Mathf.Min(Health + amount, maxHealth);
 
         if (playerProperties != null)
             playerProperties.currentHealth = Health;
@@ -69,73 +83,24 @@ public class HealthSystem : NetworkBehaviour
         if (animator != null)
             animator.SetTrigger("isHurt");
     }
-    //!!!!!!!!!!!!!!!!!
-    //[Networked] public int Health { get; set; }
-    //[SerializeField] private int maxHealth = 100;
-    //[SerializeField] private Animator animator;
 
-    //private PlayerProperties playerProperties;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && HasStateAuthority)
+        {
+            TakeDamage(10);
+        }
+    }
 
-    //private void Awake()
-    //{
-    //    playerProperties = GetComponent<PlayerProperties>();
-    //}
+    private void OnHealthChanged()
+    {
+        // Nếu có Health Text thì update text
+        if (playerProperties != null)
+        {
+            playerProperties.UpdateHealthText(Health, maxHealth);
+        }
+    }
 
-    //private void Start()
-    //{
-    //    if (HasStateAuthority)
-    //    {
-    //        Health = maxHealth;
-
-    //        if (playerProperties != null)
-    //        {
-    //            playerProperties.currentHealth = Health;
-    //        }
-    //    }
-    //}
-
-    //public void TakeDamage(int dmg)
-    //{
-    //    if (!HasStateAuthority) return;
-
-    //    Health -= dmg;
-    //    Health = Mathf.Max(Health, 0);
-
-    //    if (playerProperties != null)
-    //        playerProperties.currentHealth = Health;
-
-    //    RPC_PlayHitAnim();
-
-    //    if (Health <= 0)
-    //    {
-    //        Die();
-    //    }
-    //}
-
-    //public void Heal(int amount)
-    //{
-    //    if (!HasStateAuthority) return;
-
-    //    Health = Mathf.Min(Health + amount, maxHealth);
-
-    //    if (playerProperties != null)
-    //        playerProperties.currentHealth = Health;
-
-    //    Debug.Log($"[Player] Healed +{amount}, current HP: {Health}");
-    //}
-
-    //private void Die()
-    //{
-    //    Debug.Log("Player Dead");
-    //    // TODO: Respawn hoặc GameOver
-    //}
-
-    //[Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    //private void RPC_PlayHitAnim()
-    //{
-    //    if (animator != null)
-    //        animator.SetTrigger("isHurt");
-    //}
     //&&&&&&&&&&&&&&&&&&&&&&&&
     //[Networked] public int Health { get; set; }
     //[SerializeField] private int maxHealth = 100;

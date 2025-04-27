@@ -29,7 +29,8 @@ public class FoodPickupTrigger : NetworkBehaviour
                 playerHealth.Heal(healAmount);
                 //GetComponent<HealthSystem>().Heal(20);
                 //?????
-                GetComponent<PlayerProperties>().HealFromItem(30);
+                //GetComponent<PlayerProperties>().HealFromItem(30);
+                //playerHealth.GetComponent<HealthSystem>().Heal(healAmount);
                 // Despawn đồ ăn từ Server để đồng bộ với tất cả
                 Runner.Despawn(Object);
             }
